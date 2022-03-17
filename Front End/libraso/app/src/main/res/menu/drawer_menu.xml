@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = 'navigation_view'>
+
+
+    <group>
+        <item
+            android:id="@+id/issue_book"
+            android:icon="@drawable/ic_issue_book"
+            android:title="Issue/hold/return a book"></item>
+
+        <item
+            android:id="@+id/ebook_request"
+            android:icon="@drawable/ic_ebook_request"
+            android:title="e-book request"></item>
+
+        <item
+            android:id="@+id/suggest_book"
+            android:icon="@drawable/ic_suggest_book"
+            android:title="Suggest a book"></item>
+
+        <item
+            android:id="@+id/fine"
+            android:icon="@drawable/ic_fine"
+            android:title="Check fine dues"></item>
+
+        <item
+            android:id="@+id/event"
+            android:icon="@drawable/ic_event"
+            android:title="Upcoming Events"></item>
+
+        <item
+            android:id="@+id/book_seating"
+            android:icon="@drawable/ic_book_seating"
+            android:title="Book seating"></item>
+
+        <item
+            android:id="@+id/book_event"
+            android:icon="@drawable/ic_book_event"
+            android:title="Discussion Room Booking"></item>
+
+
+    </group>
+
+    <item
+        android:id="@+id/logout"
+        android:title="Logout">
+
+    </item>
+</menu>
