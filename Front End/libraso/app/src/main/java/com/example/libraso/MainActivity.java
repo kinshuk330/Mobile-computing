@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         new ebook_request()).commit();
                 break;
 
+            case R.id.fine:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new fine()).commit();
+                break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
