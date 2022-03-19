@@ -1,6 +1,7 @@
 package com.example.libraso.Signup_Login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,8 +18,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
 
 public class GoogleLogin extends AppCompatActivity {
+    TabLayout tablayout;
+    ViewPager viewpage;
+    FloatingActionButton fbtn_google;
+
+
     int RC_SIGN_IN=0;
     String TAG="GoogleLogin";
     SignInButton signin;
@@ -27,7 +35,28 @@ public class GoogleLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_login);
+//      app signin
+        tablayout=findViewById(R.id.tablayout);
+        viewpage=findViewById(R.id.viewpager);
+        fbtn_google= findViewById(R.id.float_btn_google);
 
+        tablayout.addTab(tablayout.newTab().setText("Login"));
+        tablayout.addTab(tablayout.newTab().setText("Signup"));
+        tablayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        final ls_adapter adapter = new ls_adapter(getSupportFragmentManager(),this,tablayout.getTabCount());
+        viewpage.setAdapter(adapter);
+        viewpage.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablayout));
+
+
+
+
+
+
+
+
+
+//        google signin
         signin = findViewById(R.id.sign_in_button);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
