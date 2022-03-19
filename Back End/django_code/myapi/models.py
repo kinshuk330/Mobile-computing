@@ -18,20 +18,19 @@ class Hero(models.Model):
     alias = models.CharField(max_length=60)
     def __str__(self):
         return self.name
-
 class Book(models.Model):
     ### book details
 
     title=models.CharField(max_length=60)
     author=models.CharField(max_length=60)
-    edition=models.IntegerField()
-    description=models.CharField(max_length=60)
-    ISBN=models.CharField(max_length=13)
+    edition=models.IntegerField(null=True)
+    description=models.CharField(max_length=256)
+    ISBN=models.CharField(max_length=13, primary_key=True)
     subjects=models.CharField(max_length=60,validators=[subject_validate])
 
-    rating=models.FloatField()
+    rating=models.FloatField(null=True)
     books_available=models.CharField(max_length=60)
-    book_Image_url=models.CharField(max_length=60)
+    book_Image_url=models.URLField(null=True)
 
     #for adding constraints on sql level
     class Meta:
@@ -44,4 +43,5 @@ class Book(models.Model):
             models.CheckConstraint(
                 check=Q(ISBN__length__gte=13) & Q(ISBN__length__lte=13),
                 name='ISBN_Length_range')
+            
             )
