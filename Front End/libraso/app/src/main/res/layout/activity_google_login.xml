@@ -27,6 +27,7 @@
         app:layout_constraintHeight_percent=".75"
         app:layout_constraintVertical_bias="1"
         android:background="@drawable/ls_view_bg_curve"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +40,7 @@
             app:layout_constraintVertical_bias="0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent=".70"
+            app:layout_constraintHeight_percent=".60"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tablayout"
              />
@@ -54,17 +55,48 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/float_btn_google"
+        <TextView
+            android:id="@+id/ortext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Or"
+            android:textColor="@color/black"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/sign_in_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias=".80" />
+
+        <ImageButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
             android:elevation="35dp"
             android:src="@drawable/google_signin"
+            app:layout_constraintBottom_toTopOf="@+id/iiitdlogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".85">
+
+        </ImageButton>
+
+        <ImageView
+            android:id="@+id/iiitdlogo"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintVertical_bias="1"
+            android:src="@drawable/iiitd_fullname_logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-
+            app:layout_constraintHorizontal_bias=".5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewpager" />
+             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -78,20 +110,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".33" />
-
-
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="508dp">
-    </com.google.android.gms.common.SignInButton>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

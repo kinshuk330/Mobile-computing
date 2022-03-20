@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.libraso.MainActivity;
@@ -24,12 +25,10 @@ import com.google.android.material.tabs.TabLayout;
 public class GoogleLogin extends AppCompatActivity {
     TabLayout tablayout;
     ViewPager viewpage;
-    FloatingActionButton fbtn_google;
-
 
     int RC_SIGN_IN=0;
     String TAG="GoogleLogin";
-    SignInButton signin;
+    ImageButton signin;
     GoogleSignInClient mGoogleSignInClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,6 @@ public class GoogleLogin extends AppCompatActivity {
 //      app signin
         tablayout=findViewById(R.id.tablayout);
         viewpage=findViewById(R.id.viewpager);
-        fbtn_google= findViewById(R.id.float_btn_google);
 
         tablayout.addTab(tablayout.newTab().setText("Login"));
         tablayout.addTab(tablayout.newTab().setText("Signup"));
@@ -47,12 +45,6 @@ public class GoogleLogin extends AppCompatActivity {
         final ls_adapter adapter = new ls_adapter(getSupportFragmentManager(),this,tablayout.getTabCount());
         viewpage.setAdapter(adapter);
         viewpage.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablayout));
-
-
-
-
-
-
 
 
 

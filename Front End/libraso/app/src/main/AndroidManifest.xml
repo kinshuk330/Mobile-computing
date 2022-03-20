@@ -11,10 +11,11 @@
         android:theme="@style/Theme.Libraso">
         <activity
             android:name=".Signup_Login.GoogleLogin"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Libraso.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
