@@ -22,6 +22,7 @@ urlpatterns = [
     ,path("about/",views.about) # gonna call this function when someone access this link
     # ,path(r"^$",views.homepage),
     ,path("",include("myapi.urls"))
+    ,path("", include("accounts.urls"))
 
 
 ]
