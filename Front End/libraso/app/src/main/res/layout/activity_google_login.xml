@@ -27,7 +27,6 @@
         app:layout_constraintHeight_percent=".75"
         app:layout_constraintVertical_bias="1"
         android:background="@drawable/ls_view_bg_curve"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,8 +46,9 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/ls_view_bg_curve"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
