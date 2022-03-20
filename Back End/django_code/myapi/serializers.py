@@ -1,12 +1,9 @@
 # serializers.py
 from rest_framework import serializers
 
-from .models import Hero,  Book, Fine
+from .models import   Book, Fine
 
-class HeroSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Hero
-        fields = ("id",'name', 'alias')
+
 
 class BookSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

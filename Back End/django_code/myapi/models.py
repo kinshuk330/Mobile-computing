@@ -12,12 +12,7 @@ def subject_validate(value):
 
 models.CharField.register_lookup(Length, 'length')
 
-# Create your models here.
-class Hero(models.Model):
-    name = models.CharField(max_length=60)
-    alias = models.CharField(max_length=60)
-    def __str__(self):
-        return self.name
+
 class Book(models.Model):
     ### book details
 
