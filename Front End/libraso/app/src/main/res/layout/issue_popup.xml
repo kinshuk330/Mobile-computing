@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/description_book">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Would you like to place book on hold?"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/yes"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:text="Yes" />
+
+    <Button
+        android:id="@+id/no"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/yes"
+        android:layout_alignParentRight="true"
+        android:text="No" />
+</RelativeLayout>

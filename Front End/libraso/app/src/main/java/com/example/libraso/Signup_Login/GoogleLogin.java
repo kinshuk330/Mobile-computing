@@ -3,6 +3,7 @@ package com.example.libraso.Signup_Login;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,13 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class GoogleLogin extends AppCompatActivity {
     TabLayout tablayout;
@@ -46,6 +54,30 @@ public class GoogleLogin extends AppCompatActivity {
         viewpage.setAdapter(adapter);
         viewpage.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablayout));
 
+
+        File f;
+        f = new File(getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt");
+        System.out.println("start");
+        String s=null;
+        if(f.exists()!=false){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            BufferedReader br = null;
+            try {
+                br = new BufferedReader(new FileReader(f));
+                s = br.readLine();
+                br.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            intent.putExtra("User_details",s);
+            System.out.println("file exist");
+            startActivity(intent);
+
+            finish();
+        }
 
 
 //        google signin
@@ -111,11 +143,31 @@ public class GoogleLogin extends AppCompatActivity {
 
     private void updateUI(GoogleSignInAccount account) {
         if(account != null){
+            String personName = account.getDisplayName();
+            String personGivenName = account.getGivenName();
+            String personFamilyName = account.getFamilyName();
+            String personEmail = account.getEmail();
+
+            String path= getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt";
+            FileOutputStream writer = null;
+            String obj=String.valueOf("{\"user\":{\"first_name\":\""+personGivenName+"\",\"last_name\":\""+personFamilyName+"\",\"username\":\""+personName+"\",\"email\":\""+personEmail+"\"}");
+            try {
+                writer = new FileOutputStream(path, false);
+                writer.write(obj.getBytes());
+                writer.close();
+                System.out.println("Successfully saved");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             Toast.makeText(this,"You Signed In successfully",Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, MainActivity.class));
+
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtra("User_details",obj);
+            startActivity(intent);
+
+            finish();
 
         }else {
-            Toast.makeText(this,"You Didnt signed in",Toast.LENGTH_SHORT).show();
         }
 
     }

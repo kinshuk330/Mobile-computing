@@ -10,10 +10,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.libraso.Signup_Login.GoogleLogin;
 import com.google.android.material.navigation.NavigationView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -44,6 +46,9 @@ import com.google.android.material.navigation.NavigationView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -163,7 +168,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         // ...
+                        String path= getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt";
+                        try {
+                            Files.deleteIfExists(Paths.get(path));
+                        }
+                        catch (IOException e) {
+
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                        Intent intent = new Intent(getApplicationContext(), GoogleLogin.class);
+                        startActivity(intent);
                         Toast.makeText(MainActivity.this,"Signed Out Successfully",Toast.LENGTH_SHORT).show();
+
                         finish();
                     }
                 });
