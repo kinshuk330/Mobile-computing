@@ -6,6 +6,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.google.android.material.navigation.NavigationView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.media.Image;
 import android.net.Uri;
@@ -26,30 +40,28 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
+    public FragmentManager fm;
     ImageView userimage;
     TextView username;
     String personName=null;
     Uri personPhoto=null;
     GoogleSignInClient mGoogleSignInClient;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // Code for navigation Drawer
         super.onCreate(savedInstanceState);
 
-
         setContentView(R.layout.activity_main);
-
-
-
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -58,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        yaha kar saka
+        //        yaha kar saka
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             personName = acct.getDisplayName().toString();
@@ -84,19 +96,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            e.printStackTrace();
 //        }
 
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
         if (savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new issue_book()).commit();
+            fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.fragment_container,
+                    new issue_book(fm)).commit();
             navigationView.setCheckedItem(R.id.issue_book);
         }
+        // End of code of navigation drawer
+
 
 
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -110,20 +126,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.issue_book:
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new issue_book()).commit();
+            fm.beginTransaction().replace(R.id.fragment_container,
+                        new issue_book(fm)).commit();
                 break;
 
             case R.id.ebook_request:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                fm.beginTransaction().replace(R.id.fragment_container,
                         new ebook_request()).commit();
                 break;
 
             case R.id.fine:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                fm.beginTransaction().replace(R.id.fragment_container,
                         new fine()).commit();
                 break;
-
             case R.id.logout:
                 signOut();
                 break;
