@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="@layout/description_book">
+    tools:showIn="@layout/description_book"
+    android:background="@drawable/bg_blue">
 
     <TextView
         android:id="@+id/textView3"

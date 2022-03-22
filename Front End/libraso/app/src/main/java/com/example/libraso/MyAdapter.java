@@ -73,7 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
             new_fragment.setArguments(bundle);
 
-            MainActivity.fm.beginTransaction().replace(R.id.fragment_container,new_fragment).commit();
+            MainActivity.fm.beginTransaction().add(R.id.fragment_container,new_fragment).addToBackStack(null).commit();
 
 
         }

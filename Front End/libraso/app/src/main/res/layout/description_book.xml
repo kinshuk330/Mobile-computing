@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="284dp"
+        android:layout_height="332dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -21,18 +21,18 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="420dp"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/book_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="40dp"
                 android:text="Shoe dog : a memoir by the creator of Nike"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -40,23 +40,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/book_title"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="-31dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginBottom="-50dp"
                 android:text="By-"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/author"
                 android:layout_width="149dp"
                 android:layout_height="wrap_content"
+                android:layout_alignTop="@id/By"
                 android:layout_alignRight="@id/By"
                 android:layout_alignBottom="@id/book_title"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="-150dp"
-                android:layout_marginBottom="-31dp"
+                android:layout_marginBottom="-50dp"
                 android:text="Knight, Philip H."
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -65,7 +66,7 @@
                 android:layout_alignStart="@id/author"
                 android:layout_alignBottom="@id/By"
                 android:layout_marginStart="10dp"
-                android:layout_marginBottom="-33dp"
+                android:layout_marginBottom="-45dp"
                 app:srcCompat="@android:drawable/btn_star_big_on" />
 
             <Button
@@ -75,7 +76,7 @@
                 android:layout_alignBottom="@id/author"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginBottom="-97dp"
+                android:layout_marginBottom="-100dp"
                 android:text="Place Book On Hold" />
 
             <TextView
@@ -85,7 +86,7 @@
                 android:layout_alignStart="@id/imageView4"
                 android:layout_alignBottom="@id/author"
                 android:layout_marginStart="49dp"
-                android:layout_marginBottom="-30dp"
+                android:layout_marginBottom="-38dp"
                 android:text="4.3"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -96,9 +97,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="325dp"
+        android:layout_height="231dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="49dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="121dp"
         android:layout_weight="1">
 
         <LinearLayout
@@ -112,7 +114,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:text="edition" />
+                android:text="edition"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/ISBN"
@@ -120,15 +123,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:text="ISBN" />
-
-            <TextView
-                android:id="@+id/Subjects"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="10dp"
-                android:text="Subjects" />
+                android:text="ISBN"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/description"
@@ -136,7 +132,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:text="description" />
+                android:text="description"
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 

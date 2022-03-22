@@ -93,11 +93,6 @@ public class show_book_grid extends Fragment {
         titles = new ArrayList<>();
         images = new ArrayList<>();
         fetch_Books();
-
-
-
-
-
     }
 
     void fetch_Books()
