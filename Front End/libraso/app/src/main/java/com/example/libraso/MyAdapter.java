@@ -22,13 +22,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private Context context;
     private List<String> titles;
     private List<Bitmap> images;
-    static private FragmentManager fm;
+//    private FragmentManager fm;
 
-    public MyAdapter(Context context, List<String> titles,List<Bitmap> images,FragmentManager fm){
+    public MyAdapter(Context context, List<String> titles,List<Bitmap> images){
         this.context = context;
         this.titles = titles;
         this.images = images;
-        this.fm = fm;
+//        this.fm = fm;
     }
 
 
@@ -59,6 +59,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
             imageView = itemView.findViewById(R.id.imageView);
             textView = itemView.findViewById(R.id.textView);
+            itemView.setOnClickListener(this);
+
         }
 
 
@@ -71,8 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
             new_fragment.setArguments(bundle);
 
-            fm.beginTransaction().replace(R.id.fragment_container,
-                    new_fragment).commit();
+            MainActivity.fm.beginTransaction().replace(R.id.fragment_container,new_fragment).commit();
 
 
         }

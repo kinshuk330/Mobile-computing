@@ -53,7 +53,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
-    public FragmentManager fm;
+    static public FragmentManager fm;
     ImageView userimage;
     TextView username;
     String personName=null;
