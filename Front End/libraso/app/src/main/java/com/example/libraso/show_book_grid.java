@@ -54,6 +54,7 @@ public class show_book_grid extends Fragment {
     private ArrayList<String> titles;
     private ArrayList<Bitmap> images;
     private MyAdapter adapter;
+    static ArrayList<books> Book_list;
     private FragmentManager fm;
 
 //    private Context context;
@@ -109,9 +110,23 @@ public class show_book_grid extends Fragment {
                     JSONArray obj = new JSONArray(response);
 
                     for (int i = 0; i <obj.length() ; i++) {
+                        JSONObject tempobj=obj.getJSONObject(i);
                         titles.add(obj.getJSONObject(i).getString("title"));
+
                         images.add(new Download_image().execute(obj.getJSONObject(i).getString("book_Image_url")).get());
+
                         adapter.notifyDataSetChanged();
+
+                        books temp=new books();
+                        temp.setTitle(tempobj.getString("title"));
+                        temp.setImage(images.get(images.size()-1));
+                        temp.setAuthor(tempobj.getString("author"));
+                        temp.setRating((float) tempobj.getDouble("rating"));
+                        temp.setBooks_available(tempobj.getInt("books_available"));
+                        temp.setEdition(tempobj.getInt("edition"));
+                        temp.setISBN(tempobj.getString("ISBN"));
+                        Book_list.add(temp);
+
 
                     }
 

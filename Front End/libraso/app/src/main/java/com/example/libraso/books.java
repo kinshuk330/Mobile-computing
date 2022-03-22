@@ -1,7 +1,9 @@
 package com.example.libraso;
 
+import android.graphics.Bitmap;
+
 public class books {
-    private String image;
+    private Bitmap image;
     private String title;
     private String author;
     private int edition;
@@ -9,11 +11,11 @@ public class books {
     private int books_available;
     private float rating;
 
-    public String getImage() {
+    public Bitmap getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Bitmap image) {
         this.image = image;
     }
 

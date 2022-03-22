@@ -41,13 +41,16 @@ public class description_book extends Fragment {
         book_title.findViewById(R.id.book_title);
         by.findViewById(R.id.By);
         author.findViewById(R.id.author);
-        imageView4.findViewById(R.id.imageView4);
+//        imageView4.findViewById(R.id.imageView4);
         rating.findViewById(R.id.rating);
         edition.findViewById(R.id.edition);
         ISBN.findViewById(R.id.ISBN);
         description.findViewById(R.id.description);
 
         int position=getArguments().getInt("position");
+        books Book=show_book_grid.Book_list.get(position);
+        imageView.setImageBitmap(Book.getImage());
+
 
 
 
