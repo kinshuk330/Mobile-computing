@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 public class description_book extends Fragment {
     Dialog dialog;
     Button onHold;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
