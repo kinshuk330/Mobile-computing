@@ -60,8 +60,12 @@ public class show_book_grid extends Fragment {
 //    private Context context;
 
     public show_book_grid(FragmentManager fm){
+
+
         this.fm = fm;
     }
+    public show_book_grid()
+    {}
 
     @Nullable
     @Override
@@ -73,7 +77,7 @@ public class show_book_grid extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         fetchlist();
         recyclerView = view.findViewById(R.id.recyclerview);
-        adapter = new MyAdapter(getContext(),titles,images,fm);
+        adapter = new MyAdapter(getContext(),titles,images);
 
         Book_list=new ArrayList<books>();
 
@@ -124,6 +128,7 @@ public class show_book_grid extends Fragment {
                         temp.setRating((float) tempobj.getDouble("rating"));
                         temp.setBooks_available(tempobj.getInt("books_available"));
                         temp.setEdition(tempobj.getInt("edition"));
+                        temp.setDescription(tempobj.getString("description"));
                         temp.setISBN(tempobj.getString("ISBN"));
                         Book_list.add(temp);
 

@@ -37,19 +37,25 @@ public class description_book extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         onHold = view.findViewById(R.id.onHold);
-        imageView.findViewById(R.id.imageView);
-        book_title.findViewById(R.id.book_title);
-        by.findViewById(R.id.By);
-        author.findViewById(R.id.author);
+        imageView=view.findViewById(R.id.imageView);
+        book_title=view.findViewById(R.id.book_title);
+        author=view.findViewById(R.id.author);
 //        imageView4.findViewById(R.id.imageView4);
-        rating.findViewById(R.id.rating);
-        edition.findViewById(R.id.edition);
-        ISBN.findViewById(R.id.ISBN);
-        description.findViewById(R.id.description);
+        rating=view.findViewById(R.id.rating);
+        edition=view.findViewById(R.id.edition);
+        ISBN=view.findViewById(R.id.ISBN);
+        description=view.findViewById(R.id.description);
 
         int position=getArguments().getInt("position");
         books Book=show_book_grid.Book_list.get(position);
         imageView.setImageBitmap(Book.getImage());
+        book_title.setText(Book.getTitle());
+        author.setText(Book.getAuthor());
+        rating.setText(String.valueOf(Book.getRating()));
+        edition.setText(Book.getEdition());
+        ISBN.setText(Book.getISBN());
+        description.setText(Book.getDescription());
+
 
 
 

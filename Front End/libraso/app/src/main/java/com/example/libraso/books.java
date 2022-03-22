@@ -10,6 +10,7 @@ public class books {
     private String ISBN;
     private int books_available;
     private float rating;
+    private String description;
 
     public Bitmap getImage() {
         return image;
@@ -65,5 +66,13 @@ public class books {
 
     public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
