@@ -24,6 +24,10 @@
             android:id="@+id/fine"
             android:icon="@drawable/ic_fine"
             android:title="Check fine dues"></item>
+        <item
+            android:id="@+id/Complaint"
+            android:icon="@drawable/ic_suggest_book"
+            android:title="Raise a complaint"></item>
 
         <item
             android:id="@+id/event"
