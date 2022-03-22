@@ -75,7 +75,7 @@ public class show_book_grid extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerview);
         adapter = new MyAdapter(getContext(),titles,images,fm);
 
-
+        Book_list=new ArrayList<books>();
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(gridLayoutManager);

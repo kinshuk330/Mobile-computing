@@ -64,6 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         @Override
         public void onClick(View view) {
+            System.out.println("CLICK REGISTERED !!!!!   "+getAdapterPosition());
             Bundle bundle=new Bundle();
             bundle.putInt("position",getAdapterPosition());
             description_book new_fragment=new description_book();
