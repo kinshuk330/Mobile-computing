@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +18,15 @@ import androidx.fragment.app.Fragment;
 public class description_book extends Fragment {
     Dialog dialog;
     Button onHold;
+    ImageView imageView;
+    TextView book_title;
+    TextView by;
+    TextView author;
+    ImageView imageView4;
+    TextView rating;
+    TextView edition;
+    TextView ISBN;
+    TextView description;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,6 +37,22 @@ public class description_book extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         onHold = view.findViewById(R.id.onHold);
+        imageView.findViewById(R.id.imageView);
+        book_title.findViewById(R.id.book_title);
+        by.findViewById(R.id.By);
+        author.findViewById(R.id.author);
+        imageView4.findViewById(R.id.imageView4);
+        rating.findViewById(R.id.rating);
+        edition.findViewById(R.id.edition);
+        ISBN.findViewById(R.id.ISBN);
+        description.findViewById(R.id.description);
+
+        int position=getArguments().getInt("position");
+
+
+
+
+
         onHold.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

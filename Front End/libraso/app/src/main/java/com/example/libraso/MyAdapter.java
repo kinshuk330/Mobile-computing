@@ -2,6 +2,7 @@ package com.example.libraso;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private Context context;
     private List<String> titles;
     private List<Bitmap> images;
-    private FragmentManager fm;
+    static private FragmentManager fm;
 
     public MyAdapter(Context context, List<String> titles,List<Bitmap> images,FragmentManager fm){
         this.context = context;
@@ -63,7 +64,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         @Override
         public void onClick(View view) {
-            
+            Bundle bundle=new Bundle();
+            bundle.putInt("position",getAdapterPosition());
+            description_book new_fragment=new description_book();
+
+            new_fragment.setArguments(bundle);
+
+            fm.beginTransaction().replace(R.id.fragment_container,
+                    new_fragment).commit();
+
+
         }
     }
 }
