@@ -59,13 +59,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Code for navigation Drawer
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        try {
-            JSONObject user_account= new JSONObject(intent.getStringExtra("User_details"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
+//        Intent intent = getIntent();
+//        try {
+//            JSONObject user_account= new JSONObject(intent.getStringExtra("User_details"));
+//
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//above lines to be uncommented commented to bypass login
         setContentView(R.layout.activity_main);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (savedInstanceState == null){
             fm = getSupportFragmentManager();
             fm.beginTransaction().replace(R.id.fragment_container,
-                    new issue_book(fm)).commit();
+                    new show_book_grid(fm)).commit();
             navigationView.setCheckedItem(R.id.issue_book);
         }
         // End of code of navigation drawer
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()){
             case R.id.issue_book:
             fm.beginTransaction().replace(R.id.fragment_container,
-                        new issue_book(fm)).commit();
+                        new show_book_grid(fm)).commit();
                 break;
 
             case R.id.ebook_request:

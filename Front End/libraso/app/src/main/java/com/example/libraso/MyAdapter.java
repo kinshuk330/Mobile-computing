@@ -1,6 +1,7 @@
 package com.example.libraso;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,16 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.BitSet;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private Context context;
     private List<String> titles;
-    private List<Integer> images;
+    private List<Bitmap> images;
     private FragmentManager fm;
 
-    public MyAdapter(Context context, List<String> titles,List<Integer> images,FragmentManager fm){
+    public MyAdapter(Context context, List<String> titles,List<Bitmap> images,FragmentManager fm){
         this.context = context;
         this.titles = titles;
         this.images = images;
@@ -39,7 +41,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.textView.setText(titles.get(position));
-        holder.imageView.setImageResource(images.get(position));
+        holder.imageView.setImageBitmap(images.get(position));
     }
 
     @Override
