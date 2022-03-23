@@ -54,7 +54,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
     static public FragmentManager fm;
-    static int userid=-1;
+    public static int userid=-1;
     ImageView userimage;
     TextView username;
     String personName=null;

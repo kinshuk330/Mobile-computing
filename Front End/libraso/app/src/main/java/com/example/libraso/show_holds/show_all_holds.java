@@ -30,6 +30,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.libraso.MainActivity;
 import com.example.libraso.MyAdapter;
 import com.example.libraso.R;
 import com.example.libraso.books;
@@ -129,7 +130,10 @@ public class show_all_holds extends Fragment {
                     System.out.println(obj);
 
                     for (int i = 0; i <obj.length() ; i++) {
+
                         JSONObject tempobj=obj.getJSONObject(i);
+                        if(tempobj.getInt("user_id")!= MainActivity.userid)
+                            continue;
                         Hold temp=new Hold(
                                 tempobj.getInt("id"),
                                 tempobj.getString("due_date"),
