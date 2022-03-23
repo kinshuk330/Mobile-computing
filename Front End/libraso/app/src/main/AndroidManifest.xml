@@ -17,7 +17,7 @@
             android:name=".Signup_Login.GoogleLogin"
             android:exported="true"
             android:theme="@style/Theme.Libraso.NoActionBar"
-            tools:ignore="MissingClass">
+            >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
