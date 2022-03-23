@@ -33,15 +33,16 @@ public class Suggest_ebook extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_suggest_ebook, container, false);
         submit= view.findViewById(R.id.submit_suggestion);
-        title= view.findViewById(R.id.book_title);
+        title= view.findViewById(R.id.suggestion_title);
         description= view.findViewById(R.id.suggestion_description);
         r_group= view.findViewById(R.id.suggestion_radiogroup);
+        int selectedRadioButtonId = r_group.getCheckedRadioButtonId();
+
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int selectedRadioButtonId = r_group.getCheckedRadioButtonId();
                 if (selectedRadioButtonId != -1){
-                    System.out.println(selectedRadioButtonId);
                     if(selectedRadioButtonId==1){
                         selected_type = "B";
                         description.setHint("ISBN No: 12345678, Author Name: Mary Janes, Price: 5xxx, Edition: 2, description: xyz, etc.");}
