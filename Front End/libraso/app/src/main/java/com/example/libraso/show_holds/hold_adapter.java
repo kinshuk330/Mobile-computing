@@ -36,7 +36,7 @@ public class hold_adapter extends RecyclerView.Adapter<hold_adapter.ViewHolder>
     }
     @NonNull
     @Override
-    public hold_adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.holds_grid,parent,false);
         return new ViewHolder(v);
 
@@ -53,7 +53,7 @@ public class hold_adapter extends RecyclerView.Adapter<hold_adapter.ViewHolder>
 
     @Override
     public int getItemCount() {
-        return 0;
+        return hold_list.size();
     }
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
@@ -71,6 +71,8 @@ public class hold_adapter extends RecyclerView.Adapter<hold_adapter.ViewHolder>
             hold_book_date = itemView.findViewById(R.id.hold_book_date);
             hold_book_due = itemView.findViewById(R.id.hold_book_due);
             hold_book_ISBN = itemView.findViewById(R.id.hold_book_ISBN);
+            itemView.setOnClickListener(this);
+
 
 
         }
@@ -79,13 +81,6 @@ public class hold_adapter extends RecyclerView.Adapter<hold_adapter.ViewHolder>
         @Override
         public void onClick(View view) {
             System.out.println("CLICK REGISTERED !!!!!   "+getAdapterPosition());
-            Bundle bundle=new Bundle();
-            bundle.putInt("position",getAdapterPosition());
-            description_book new_fragment=new description_book();
-
-            new_fragment.setArguments(bundle);
-
-            MainActivity.fm.beginTransaction().add(R.id.fragment_container,new_fragment).addToBackStack(null).commit();
 
 
         }

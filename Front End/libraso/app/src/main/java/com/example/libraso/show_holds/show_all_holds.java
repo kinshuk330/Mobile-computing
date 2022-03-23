@@ -13,6 +13,7 @@ import android.os.IBinder;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -82,7 +83,7 @@ public class show_all_holds extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         fetchlist();
 
-        recyclerView = view.findViewById(R.id.recyclerview);
+        recyclerView = view.findViewById(R.id.recyclerview_holds);
         adapter = new hold_adapter(getContext(),hold_list);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
@@ -98,10 +99,14 @@ public class show_all_holds extends Fragment {
         hold_list=new ArrayList<>();
 
         fetch_holds();
+        System.out.println(hold_list.size()+" !!!!!!!!!!!!!!!!!! holdlist");
 
         for (Hold temp: hold_list)
         {
+            System.out.println(adapter.getItemCount()+" !!!!!!!!!!!!!!!!!! item");
+
             temp.setBook(fetch_Books(temp.getBook_id()));
+            System.out.println(adapter.getItemCount()+" !!!!!!!!!!!!!!!!!! item");
             adapter.notifyDataSetChanged();
 
         }
@@ -131,14 +136,16 @@ public class show_all_holds extends Fragment {
                                 tempobj.getString("issued_date"),
                                 tempobj.getInt("user_id"),
                                 tempobj.getString("book_id"),
-                                null
+                                fetch_Books(tempobj.getString("book_id"))
+
 
 
 
                         );
                         hold_list.add(temp);
 
-                    System.out.println(temp);
+                    System.out.println(hold_list);
+                    System.out.println(adapter.getItemCount()+"in fetchlist");
 
                     }
 
@@ -167,7 +174,7 @@ public class show_all_holds extends Fragment {
         books temp=new books();
         RequestQueue MyRequestQueue = Volley.newRequestQueue(this.getContext());
 
-        String url = "https://libraso.herokuapp.com/books/"+ISBN;
+        String url = "https://libraso.herokuapp.com/books/"+ISBN+"/";
         StringRequest MyStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

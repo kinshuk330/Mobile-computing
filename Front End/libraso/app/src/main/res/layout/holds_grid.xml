@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="181dp"
-        android:layout_height="262dp"
+        android:layout_height="500dp"
         android:backgroundTint="@android:color/transparent"
         android:elevation="10dp"
         app:cardElevation="2dp"
@@ -38,7 +38,7 @@
                 android:id="@+id/hold_book_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/imageView"
+                android:layout_below="@+id/hold_book_image"
                 android:layout_centerHorizontal="true"
                 android:text="Name"
                 android:textAlignment="center"
