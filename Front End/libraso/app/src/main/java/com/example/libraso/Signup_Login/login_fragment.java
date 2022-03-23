@@ -88,7 +88,7 @@ private EditText password;
                         e.printStackTrace();
                     }
                     Intent intent = new Intent(getContext(), MainActivity.class);
-                    intent.putExtra("User_details",obj.toString());
+                    intent.putExtra("User_details",obj.getJSONObject("user").toString());
 // {"user":{"id":2,"password":"pbkdf2_sha256$320000$7XyTW6fcLjVIVKRsTO8U9X$Of2CGFAF/XB3SsD6jxJyD82+iYCd31t6lj0URuaD7ks=","last_login":null,"is_superuser":false,"first_name":"Kinshuk","last_name":"Chopra","username":"kinshuk","is_staff":false,"email":"Kinshuk@gmail.com","gender":"M","user_type":"PR","groups":[],"user_permissions":[]},"token":"7f32450e6122550e635894cb7e652051c473c236fbed42e213af127c91bec26a"}
                     startActivity(intent);
                     getActivity().finish();
