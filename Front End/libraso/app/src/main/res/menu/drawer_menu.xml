@@ -33,6 +33,10 @@
             android:id="@+id/event"
             android:icon="@drawable/ic_event"
             android:title="Upcoming Events"></item>
+        <item
+            android:id="@+id/show_all_holds"
+            android:icon="@drawable/ic_issue_book"
+            android:title="See all current holds"/>
 
         <item
             android:id="@+id/book_seating"

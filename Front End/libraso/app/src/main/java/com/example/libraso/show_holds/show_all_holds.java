@@ -1,4 +1,4 @@
-package com.example.libraso;
+package com.example.libraso.show_holds;
 
 import android.app.Service;
 import android.content.Context;
@@ -29,7 +29,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.libraso.show_holds.hold_adapter;
+import com.example.libraso.MyAdapter;
+import com.example.libraso.R;
+import com.example.libraso.books;
+import com.example.libraso.show_book_grid;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,42 +48,41 @@ import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-public class show_book_grid extends Fragment {
+public class show_all_holds extends Fragment {
     private RecyclerView recyclerView;
     private ArrayList<String> titles;
     private ArrayList<Bitmap> images;
-    private MyAdapter adapter;
-    static ArrayList<books> Book_list;
+    private hold_adapter adapter;
+    static ArrayList<Hold> hold_list;
     private FragmentManager fm;
 
 //    private Context context;
 
-    public show_book_grid(FragmentManager fm){
+    public show_all_holds(FragmentManager fm){
 
 
         this.fm = fm;
     }
-    public show_book_grid()
+    public show_all_holds()
     {}
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.show_book, container, false);
+        return inflater.inflate(R.layout.show_all_holds, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         fetchlist();
         recyclerView = view.findViewById(R.id.recyclerview);
-        adapter = new MyAdapter(getContext(),titles,images);
-
-        Book_list=new ArrayList<books>();
+        adapter = new hold_adapter(getContext(),hold_list);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -91,16 +93,22 @@ public class show_book_grid extends Fragment {
     }
 
     public void fetchlist(){
-        titles = new ArrayList<>();
-        images = new ArrayList<>();
-        fetch_Books();
+        hold_list=new ArrayList<Hold>();
+
+        fetch_holds();
+
+        for (Hold temp: hold_list)
+        {
+            temp.setBook(fetch_Books(temp.getBook_id()));
+
+        }
     }
 
-    void fetch_Books()
+    void fetch_holds()
     {
         RequestQueue MyRequestQueue = Volley.newRequestQueue(this.getContext());
 
-        String url = "https://libraso.herokuapp.com/books";
+        String url = "https://libraso.herokuapp.com/Issued";
         StringRequest MyStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -111,32 +119,26 @@ public class show_book_grid extends Fragment {
 
                     for (int i = 0; i <obj.length() ; i++) {
                         JSONObject tempobj=obj.getJSONObject(i);
-                        titles.add(obj.getJSONObject(i).getString("title"));
+                        Hold temp=new Hold(
+                                tempobj.getInt("id"),
+                                tempobj.getString("due_Date"),
+                                tempobj.getString("issued_date"),
+                                tempobj.getInt("user_id"),
+                                tempobj.getString("book_id"),
+                                null
 
-                        images.add(new Download_image().execute(obj.getJSONObject(i).getString("book_Image_url")).get());
 
-                        adapter.notifyDataSetChanged();
 
-                        books temp=new books();
-                        temp.setTitle(tempobj.getString("title"));
-                        temp.setImage(images.get(images.size()-1));
-                        temp.setAuthor(tempobj.getString("author"));
-                        temp.setRating((float) tempobj.getDouble("rating"));
-                        temp.setBooks_available(tempobj.getInt("books_available"));
-                        temp.setEdition(tempobj.getInt("edition"));
-                        temp.setDescription(tempobj.getString("description"));
-                        temp.setISBN(tempobj.getString("ISBN"));
-                        temp.setBook_url("https://libraso.herokuapp.com/books/"+temp.getISBN()+"/");
-                        Book_list.add(temp);
+                        );
+                        hold_list.add(temp);
+
 
 
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
+                } catch (ParseException e) {
                     e.printStackTrace();
                 }
 
@@ -153,7 +155,58 @@ public class show_book_grid extends Fragment {
         MyRequestQueue.add(MyStringRequest);
 
     }
-     class Download_image extends AsyncTask<String, Void, Bitmap>
+
+    books fetch_Books(String ISBN)
+    {
+        books temp=new books();
+        RequestQueue MyRequestQueue = Volley.newRequestQueue(this.getContext());
+
+        String url = "https://libraso.herokuapp.com/books/"+ISBN;
+        StringRequest MyStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //This code is executed if the server responds, whether or not the response contains data.
+                //The String 'response' contains the server's response.
+                try {
+                    JSONObject tempobj = new JSONObject(response);
+
+
+
+                        adapter.notifyDataSetChanged();
+
+                        temp.setTitle(tempobj.getString("title"));
+                        temp.setImage(new Download_image().execute(tempobj.getString("book_Image_url")).get());
+                        temp.setAuthor(tempobj.getString("author"));
+                        temp.setRating((float) tempobj.getDouble("rating"));
+                        temp.setBooks_available(tempobj.getInt("books_available"));
+                        temp.setEdition(tempobj.getInt("edition"));
+                        temp.setDescription(tempobj.getString("description"));
+                        temp.setISBN(tempobj.getString("ISBN"));
+                        temp.setBook_url("https://libraso.herokuapp.com/books/"+temp.getISBN()+"/");
+
+
+                    } catch (JSONException jsonException) {
+                    jsonException.printStackTrace();
+                } catch (ExecutionException executionException) {
+                    executionException.printStackTrace();
+                } catch (InterruptedException interruptedException) {
+                    interruptedException.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //This code is executed if there is an error.
+                System.out.println(error);
+            }
+        }) ;
+
+        MyRequestQueue.add(MyStringRequest);
+return temp;
+    }
+    class Download_image extends AsyncTask<String, Void, Bitmap>
     {
         String TAG ="Downlad_webpage";
 
@@ -193,7 +246,7 @@ public class show_book_grid extends Fragment {
                 conn.setDoInput(true);
                 conn.connect();
                 in = conn.getInputStream();
-                 bitmap = BitmapFactory.decodeStream(in);
+                bitmap = BitmapFactory.decodeStream(in);
 
 
 
