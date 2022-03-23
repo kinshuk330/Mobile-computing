@@ -16,7 +16,7 @@ private books Book;
 
 Hold(int id,String dd,String issued_d,int user_id,String book_id,books temp) throws ParseException {
     this.id=id;
-    SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     this.due_date=formatter1.parse(dd);
     this.issued_date=formatter1.parse(issued_d);
     this.user_id=user_id;

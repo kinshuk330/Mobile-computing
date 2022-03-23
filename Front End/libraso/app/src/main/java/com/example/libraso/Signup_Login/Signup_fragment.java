@@ -126,7 +126,7 @@ public class Signup_fragment extends Fragment {
                     FileOutputStream writer = null;
                     try {
                         writer = new FileOutputStream(path, false);
-                        writer.write(String.valueOf(obj.toString()).getBytes());
+                        writer.write(String.valueOf(obj.getJSONObject("user").toString()).getBytes());
                         writer.close();
                         System.out.println("Successfully saved");
                     } catch (IOException e) {

@@ -80,7 +80,6 @@ public class show_all_holds extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        fetchlist();
         recyclerView = view.findViewById(R.id.recyclerview);
         adapter = new hold_adapter(getContext(),hold_list);
 
@@ -89,6 +88,8 @@ public class show_all_holds extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setAdapter(adapter);
+        fetchlist();
+
 
     }
 
@@ -102,6 +103,8 @@ public class show_all_holds extends Fragment {
             temp.setBook(fetch_Books(temp.getBook_id()));
 
         }
+        adapter.notifyDataSetChanged();
+
     }
 
     void fetch_holds()
@@ -115,13 +118,14 @@ public class show_all_holds extends Fragment {
                 //This code is executed if the server responds, whether or not the response contains data.
                 //The String 'response' contains the server's response.
                 try {
+                    System.out.println(response);
                     JSONArray obj = new JSONArray(response);
 
                     for (int i = 0; i <obj.length() ; i++) {
                         JSONObject tempobj=obj.getJSONObject(i);
                         Hold temp=new Hold(
                                 tempobj.getInt("id"),
-                                tempobj.getString("due_Date"),
+                                tempobj.getString("due_date"),
                                 tempobj.getString("issued_date"),
                                 tempobj.getInt("user_id"),
                                 tempobj.getString("book_id"),

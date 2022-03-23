@@ -150,7 +150,7 @@ public class GoogleLogin extends AppCompatActivity {
 
             String path= getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt";
             FileOutputStream writer = null;
-            String obj=String.valueOf("{\"user\":{\"first_name\":\""+personGivenName+"\",\"last_name\":\""+personFamilyName+"\",\"username\":\""+personName+"\",\"email\":\""+personEmail+"\"}");
+            String obj=String.valueOf("{\"first_name\":\""+personGivenName+"\",\"last_name\":\""+personFamilyName+"\",\"username\":\""+personName+"\",\"email\":\""+personEmail+"\"}");
             try {
                 writer = new FileOutputStream(path, false);
                 writer.write(obj.getBytes());
