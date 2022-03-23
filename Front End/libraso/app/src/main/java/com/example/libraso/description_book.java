@@ -1,6 +1,9 @@
 package com.example.libraso;
 
 import android.app.Dialog;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
@@ -15,10 +18,30 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class description_book extends Fragment {
     Dialog dialog, dialog2;
@@ -32,6 +55,7 @@ public class description_book extends Fragment {
     TextView edition;
     TextView ISBN;
     TextView description;
+    books Book;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,7 +77,7 @@ public class description_book extends Fragment {
         description=view.findViewById(R.id.description);
 
         int position=getArguments().getInt("position");
-        books Book=show_book_grid.Book_list.get(position);
+        Book=show_book_grid.Book_list.get(position);
         imageView.setImageBitmap(Book.getImage());
         book_title.setText(Book.getTitle());
 
@@ -73,7 +97,7 @@ public class description_book extends Fragment {
         ISBN.setText(ss);
 
 
-        text = "Description - " + Book.getISBN();
+        text = "Description - " + Book.getDescription();
         ss = new SpannableString(text);
         boldSpan = new StyleSpan(Typeface.BOLD);
         ss.setSpan(boldSpan, 0, 12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -102,7 +126,10 @@ public class description_book extends Fragment {
             public void onClick(View view) {
                 dialog.dismiss();
                 ///   Place your code here
-                Showconfirm(v);
+                issue_book_check(v);
+
+
+
             }
         });
 
@@ -130,5 +157,115 @@ public class description_book extends Fragment {
 
         dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog2.show();
+    }
+
+    void issue_book_check(View v)
+    {
+        RequestQueue MyRequestQueue = Volley.newRequestQueue(this.getContext());
+
+        String url = "https://libraso.herokuapp.com/Issued";
+        StringRequest MyStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //This code is executed if the server responds, whether or not the response contains data.
+                //The String 'response' contains the server's response.
+                try {
+                    int count=0;
+                    JSONArray obj = new JSONArray(response);
+
+                    for (int i = 0; i <obj.length() ; i++) {
+                        JSONObject tempobj=obj.getJSONObject(i);
+                        if (tempobj.getInt("user_id")==MainActivity.userid)
+                        {
+                            count+=1;
+                            if (tempobj.getString("book_id").equals(Book.getISBN()))
+                            {
+                                Toast toast=Toast.makeText(getContext(),"Sorry this book has already been placed on hold",Toast.LENGTH_SHORT);
+                                toast.setMargin(50,50);
+                                toast.show();
+                                return;
+
+                            }
+                        }
+
+                    }
+                    if (count>=3) {
+                        Toast toast=Toast.makeText(getContext(),"Cannot place more than 3 books on field",Toast.LENGTH_SHORT);
+                        toast.setMargin(50,50);
+                        toast.show();
+                        return;
+                    }
+
+                    issue_book();
+                    Showconfirm(v);
+
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //This code is executed if there is an error.
+                System.out.println(error);
+            }
+        }) ;
+
+        MyRequestQueue.add(MyStringRequest);
+    }
+    void issue_book()
+    {
+        {
+            RequestQueue MyRequestQueue = Volley.newRequestQueue(this.getContext());
+
+            String url = "https://libraso.herokuapp.com/Issued/";
+            StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    //This code is executed if the server responds, whether or not the response contains data.
+                    //The String 'response' contains the server's response.
+                    System.out.println(response);
+                    try {
+                        JSONObject obj = new JSONObject(response);
+//
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    //This code is executed if there is an error.
+                    System.out.println(error);
+                }
+            }) {
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> MyData = new HashMap<String, String>();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    Date date = new Date();
+                    long date_week = System.currentTimeMillis() + 7 * 24 * 3600 * 1000;
+                    Date newDate = new Date(date_week);
+
+
+                    MyData.put("due_date", dateFormat.format(date).toString());
+                    MyData.put("issued_date", dateFormat.format(newDate).toString());
+                    MyData.put("user_id", String.valueOf(MainActivity.userid));
+                    MyData.put("book_id", Book.getISBN());
+                    return MyData;
+                }
+            };
+            MyRequestQueue.add(MyStringRequest);
+
+        }
+
     }
 }

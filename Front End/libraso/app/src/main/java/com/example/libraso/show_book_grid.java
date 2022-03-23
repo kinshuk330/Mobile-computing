@@ -125,6 +125,7 @@ public class show_book_grid extends Fragment {
                         temp.setEdition(tempobj.getInt("edition"));
                         temp.setDescription(tempobj.getString("description"));
                         temp.setISBN(tempobj.getString("ISBN"));
+                        temp.setBook_url("https://libraso.herokuapp.com/books/"+temp.getISBN()+"/");
                         Book_list.add(temp);
 
 

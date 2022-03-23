@@ -8,6 +8,7 @@ public class books {
     private String author;
     private int edition;
     private String ISBN;
+    private String book_url;
     private int books_available;
     private float rating;
     private String description;
@@ -74,5 +75,13 @@ public class books {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getBook_url() {
+        return book_url;
+    }
+
+    public void setBook_url(String book_url) {
+        this.book_url = book_url;
     }
 }

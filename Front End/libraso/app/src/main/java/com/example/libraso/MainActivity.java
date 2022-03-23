@@ -54,11 +54,13 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
     static public FragmentManager fm;
+    static int userid=2;
     ImageView userimage;
     TextView username;
     String personName=null;
     Uri personPhoto=null;
     GoogleSignInClient mGoogleSignInClient;
+    static String user_url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        try {
 //            JSONObject user_account= new JSONObject(intent.getStringExtra("User_details"));
 //
+//        userid=user_account.getInt("id");
+        user_url="https://libraso.herokuapp.com/users/"+MainActivity.userid+"/";
 //        } catch (JSONException e) {
 //            e.printStackTrace();
 //        }
