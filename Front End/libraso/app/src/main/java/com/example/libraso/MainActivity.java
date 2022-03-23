@@ -14,7 +14,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-
 import com.example.libraso.Signup_Login.GoogleLogin;
 import com.example.libraso.show_holds.show_all_holds;
 import com.google.android.material.navigation.NavigationView;
@@ -166,6 +165,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.show_all_holds:
                 fm.beginTransaction().replace(R.id.fragment_container,
                         new show_all_holds()).commit();
+                break;
+            case R.id.suggest_book:
+                fm.beginTransaction().replace(R.id.fragment_container,
+                        new Suggest_ebook()).commit();
                 break;
             case R.id.logout:
                 signOut();
