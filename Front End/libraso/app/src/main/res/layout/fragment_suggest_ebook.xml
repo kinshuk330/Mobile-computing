@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    tools:context=".Suggest_ebook">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_suggest_heading"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintWidth_percent=".95"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias=".0">
+
+                    <TextView
+                        android:id="@+id/suggest_heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ls_edittext_bg"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Suggest Ebook"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="33sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias=".5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/layout_suggest_heading"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintWidth_percent=".95"
+                        android:id="@+id/complaint_title"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/ls_edittext_bg"
+                        android:ems="10"
+                        android:hint="Title"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/suggestion_radiogroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="15dp"
+                    android:textSize="20sp"
+                    app:layout_constraintTop_toBottomOf="@+id/complaint_title"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".95"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginLeft="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Type: "
+                        android:textSize="20sp"
+
+                        android:textStyle="bold"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Book"
+                        android:textSize="20sp"
+
+                        android:layout_marginLeft="50sp"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="journal"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="30sp"/>
+
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/suggestion_description"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/ls_edittext_bg"
+                    android:ems="10"
+
+                    android:gravity="top|left"
+                    android:hint="Description"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".60"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/suggestion_radiogroup"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".97" />
+
+
+                <Button
+                    android:id="@+id/submit_suggestion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/ls_button_bg"
+                    android:text="Submit"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/suggestion_description"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85"
+                    app:layout_goneMarginTop="15dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
