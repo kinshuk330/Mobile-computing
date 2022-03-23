@@ -46,8 +46,8 @@ public class hold_adapter extends RecyclerView.Adapter<hold_adapter.ViewHolder>
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.hold_book_ISBN.setText(hold_list.get(position).getBook_id());
         holder.hold_book_name.setText(hold_list.get(position).getBook().getTitle());
-        holder.hold_book_date.setText(hold_list.get(position).getIssued_date().toString());
-        holder.hold_book_due.setText(hold_list.get(position).getDue_date().toString());
+        holder.hold_book_date.setText("Hold placed on :"+hold_list.get(position).getIssued_date().toString());
+        holder.hold_book_due.setText("Hold expires on :"+hold_list.get(position).getDue_date().toString());
         holder.hold_book_image.setImageBitmap(hold_list.get(position).getBook().getImage());
     }
 
