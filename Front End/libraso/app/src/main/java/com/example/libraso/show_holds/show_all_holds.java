@@ -59,7 +59,7 @@ public class show_all_holds extends Fragment {
     private ArrayList<String> titles;
     private ArrayList<Bitmap> images;
     private hold_adapter adapter;
-    static ArrayList<Hold> hold_list;
+    private ArrayList<Hold> hold_list;
     private FragmentManager fm;
 
 //    private Context context;
@@ -95,17 +95,16 @@ public class show_all_holds extends Fragment {
     }
 
     public void fetchlist(){
-        hold_list=new ArrayList<Hold>();
+        hold_list=new ArrayList<>();
 
         fetch_holds();
 
         for (Hold temp: hold_list)
         {
             temp.setBook(fetch_Books(temp.getBook_id()));
+            adapter.notifyDataSetChanged();
 
         }
-        System.out.println(hold_list.get(0));
-        adapter.notifyDataSetChanged();
 
     }
 
@@ -122,6 +121,7 @@ public class show_all_holds extends Fragment {
                 try {
                     System.out.println(response);
                     JSONArray obj = new JSONArray(response);
+                    System.out.println(obj);
 
                     for (int i = 0; i <obj.length() ; i++) {
                         JSONObject tempobj=obj.getJSONObject(i);
@@ -138,7 +138,7 @@ public class show_all_holds extends Fragment {
                         );
                         hold_list.add(temp);
 
-
+                    System.out.println(temp);
 
                     }
 
