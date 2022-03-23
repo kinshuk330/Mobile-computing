@@ -80,6 +80,8 @@ public class show_all_holds extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        fetchlist();
+
         recyclerView = view.findViewById(R.id.recyclerview);
         adapter = new hold_adapter(getContext(),hold_list);
 
@@ -88,7 +90,6 @@ public class show_all_holds extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setAdapter(adapter);
-        fetchlist();
 
 
     }
@@ -103,6 +104,7 @@ public class show_all_holds extends Fragment {
             temp.setBook(fetch_Books(temp.getBook_id()));
 
         }
+        System.out.println(hold_list.get(0));
         adapter.notifyDataSetChanged();
 
     }
