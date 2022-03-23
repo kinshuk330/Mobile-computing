@@ -54,27 +54,26 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
     static public FragmentManager fm;
-    static int userid=2;
+    static int userid=-1;
     ImageView userimage;
     TextView username;
     String personName=null;
     Uri personPhoto=null;
     GoogleSignInClient mGoogleSignInClient;
-    static String user_url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         // Code for navigation Drawer
         super.onCreate(savedInstanceState);
-//        Intent intent = getIntent();
-//        try {
-//            JSONObject user_account= new JSONObject(intent.getStringExtra("User_details"));
-//
-//        userid=user_account.getInt("id");
-        user_url="https://libraso.herokuapp.com/users/"+MainActivity.userid+"/";
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
+        Intent intent = getIntent();
+        try {
+            JSONObject user_account= new JSONObject(intent.getStringExtra("User_details"));
+            System.out.println(user_account);
+
+        userid=user_account.getInt("id");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 //above lines to be uncommented commented to bypass login
         setContentView(R.layout.activity_main);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
