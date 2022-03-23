@@ -149,10 +149,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         new show_book_grid(fm)).commit();
                 break;
 
-            case R.id.ebook_request:
-                fm.beginTransaction().replace(R.id.fragment_container,
-                        new ebook_request()).commit();
-                break;
 
             case R.id.fine:
                 fm.beginTransaction().replace(R.id.fragment_container,
