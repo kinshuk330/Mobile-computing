@@ -19,7 +19,9 @@
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/drawable/ls_view_bg_curve.xml" value="0.1" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/activity_google_login.xml" value="0.4" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/ls_login_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/fragment_complaint.xml" value="0.4440333024976873" />
+        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/fragment_suggest_ebook.xml" value="0.1" />
+        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/ls_login_fragment.xml" value="0.2" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/ls_signup_fragment.xml" value="0.264" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/nav_header.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />

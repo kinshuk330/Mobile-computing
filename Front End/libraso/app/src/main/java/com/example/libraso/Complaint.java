@@ -35,7 +35,6 @@ public class Complaint extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -92,14 +91,13 @@ public class Complaint extends Fragment {
                 protected Map<String, String> getParams() {
                     Map<String, String> MyData = new HashMap<String, String>();
 
-
-
                     MyData.put("title", title.getText().toString());
                     MyData.put("description", description.getText().toString());
                     MyData.put("user_id", String.valueOf(MainActivity.userid));
                     return MyData;
                 }
             };
+
             MyRequestQueue.add(MyStringRequest);
 
         }

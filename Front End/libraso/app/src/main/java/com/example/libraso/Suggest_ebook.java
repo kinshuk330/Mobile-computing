@@ -36,8 +36,6 @@ public class Suggest_ebook extends Fragment {
         title= view.findViewById(R.id.suggestion_title);
         description= view.findViewById(R.id.suggestion_description);
         r_group= view.findViewById(R.id.suggestion_radiogroup);
-
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

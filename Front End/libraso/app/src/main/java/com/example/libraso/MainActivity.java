@@ -54,7 +54,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
     static public FragmentManager fm;
-    static int userid=-1;
+    public static int userid=-1;
     ImageView userimage;
     TextView username;
     String personName=null;
@@ -173,6 +173,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
     private void signOut() {
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
@@ -191,7 +192,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Intent intent = new Intent(getApplicationContext(), GoogleLogin.class);
                         startActivity(intent);
                         Toast.makeText(MainActivity.this,"Signed Out Successfully",Toast.LENGTH_SHORT).show();
-
                         finish();
                     }
                 });

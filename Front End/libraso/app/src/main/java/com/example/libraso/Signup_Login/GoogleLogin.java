@@ -33,11 +33,11 @@ import java.io.IOException;
 public class GoogleLogin extends AppCompatActivity {
     TabLayout tablayout;
     ViewPager viewpage;
-
     int RC_SIGN_IN=0;
     String TAG="GoogleLogin";
     ImageButton signin;
     GoogleSignInClient mGoogleSignInClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +59,7 @@ public class GoogleLogin extends AppCompatActivity {
         f = new File(getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt");
         System.out.println("start");
         String s=null;
+
         if(f.exists()!=false){
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             BufferedReader br = null;
@@ -75,7 +76,6 @@ public class GoogleLogin extends AppCompatActivity {
             intent.putExtra("User_details",s);
             System.out.println("file exist");
             startActivity(intent);
-
             finish();
         }
 
@@ -117,7 +117,6 @@ public class GoogleLogin extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             // The Task returned from this call is always completed, no need to attach

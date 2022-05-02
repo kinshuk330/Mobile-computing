@@ -252,12 +252,12 @@ public class description_book extends Fragment {
                     Map<String, String> MyData = new HashMap<String, String>();
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     Date date = new Date();
-                    long date_week = System.currentTimeMillis() + 7 * 24 * 3600 * 1000;
+                    long date_week = System.currentTimeMillis() + 1 * 24 * 3600 * 1000;
                     Date newDate = new Date(date_week);
 
 
-                    MyData.put("due_date", dateFormat.format(date).toString());
-                    MyData.put("issued_date", dateFormat.format(newDate).toString());
+                    MyData.put("due_date", dateFormat.format(newDate).toString());
+                    MyData.put("issued_date", dateFormat.format(date).toString());
                     MyData.put("user_id", String.valueOf(MainActivity.userid));
                     MyData.put("book_id", Book.getISBN());
                     return MyData;

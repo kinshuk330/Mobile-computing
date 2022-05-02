@@ -8,17 +8,21 @@ import java.util.Date;
 
 public class Hold {
 private int id;
-private Date due_date;
-private Date issued_date;
+private String due_date;
+private String issued_date;
 private int user_id;
 private String book_id;
 private books Book;
 
 Hold(int id,String dd,String issued_d,int user_id,String book_id,books temp) throws ParseException {
     this.id=id;
-    SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-    this.due_date=formatter1.parse(dd);
-    this.issued_date=formatter1.parse(issued_d);
+    SimpleDateFormat output = new SimpleDateFormat("dd/mm/yyyy");
+
+    SimpleDateFormat input=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+//    this.due_date=dt1.format(formatter1.parse(dd));
+//    this.issued_date=dt1.format(formatter1.parse(issued_d));
+    this.due_date= output.format(input.parse(dd));
+    this.issued_date=output.format(input.parse(issued_d));
     this.user_id=user_id;
     this.book_id=book_id;
     this.Book=temp;
@@ -33,20 +37,12 @@ Hold(int id,String dd,String issued_d,int user_id,String book_id,books temp) thr
         this.id = id;
     }
 
-    public Date getDue_date() {
+    public String getDue_date() {
         return due_date;
     }
 
-    public void setDue_date(Date due_date) {
-        this.due_date = due_date;
-    }
-
-    public Date getIssued_date() {
+    public String getIssued_date() {
         return issued_date;
-    }
-
-    public void setIssued_date(Date issued_date) {
-        this.issued_date = issued_date;
     }
 
     public int getUser_id() {
