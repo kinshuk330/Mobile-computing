@@ -130,6 +130,7 @@ public class show_all_holds extends Fragment {
                     System.out.println(obj);
 
                     for (int i = 0; i <obj.length() ; i++) {
+
                         JSONObject tempobj=obj.getJSONObject(i);
                         if(tempobj.getInt("user_id")!= MainActivity.userid)
                             continue;
