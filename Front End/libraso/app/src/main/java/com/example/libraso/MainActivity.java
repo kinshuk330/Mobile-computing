@@ -10,8 +10,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.MenuItem;
 import com.example.libraso.Signup_Login.GoogleLogin;
@@ -55,16 +57,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     static public FragmentManager fm;
     public static int userid=-1;
+    private AlertDialog progressDialog;
     ImageView userimage;
     TextView username;
     String personName=null;
     Uri personPhoto=null;
     GoogleSignInClient mGoogleSignInClient;
+    Loading loader=new Loading();
+    IntentFilter startload= new IntentFilter("START_LOADING");
+    IntentFilter endload= new IntentFilter("STOP_LOADING");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         // Code for navigation Drawer
         super.onCreate(savedInstanceState);
+//        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//        LayoutInflater infl=this.getLayoutInflater();
+//        builder.setView(infl.inflate(R.layout.progress_dialog,null));
+//        builder.setCancelable(false);
+//        progressDialog=builder.create();
+//        progressDialog.show();
+//        System.out.println("start");
         Intent intent = getIntent();
         try {
             JSONObject user_account= new JSONObject(intent.getStringExtra("User_details"));
@@ -195,5 +209,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         finish();
                     }
                 });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(loader,startload );
+        registerReceiver(loader, endload);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(loader);
     }
 }
