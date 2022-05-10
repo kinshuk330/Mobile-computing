@@ -3,6 +3,7 @@ package com.example.libraso.Signup_Login;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class GoogleLogin extends AppCompatActivity {
     String TAG="GoogleLogin";
     ImageButton signin;
     GoogleSignInClient mGoogleSignInClient;
+    ProgressDialog progressdialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,8 +93,16 @@ public class GoogleLogin extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressdialog= new ProgressDialog(GoogleLogin.this);
+                progressdialog.show();
+                progressdialog.setContentView(R.layout.progress_dialog);
+                progressdialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent
+                );
+
                 switch (view.getId()) {
                     case R.id.sign_in_button:
+                        progressdialog.dismiss();
                         signIn();
                         break;
                     // ...
