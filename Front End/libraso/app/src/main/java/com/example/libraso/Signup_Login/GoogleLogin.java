@@ -55,29 +55,29 @@ public class GoogleLogin extends AppCompatActivity {
         viewpage.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablayout));
 
 
-        File f;
-        f = new File(getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt");
-        System.out.println("start");
-        String s=null;
-
-        if(f.exists()!=false){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            BufferedReader br = null;
-            try {
-                br = new BufferedReader(new FileReader(f));
-                s = br.readLine();
-                br.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            intent.putExtra("User_details",s);
-            System.out.println("file exist");
-            startActivity(intent);
-            finish();
-        }
+//        File f;
+//        f = new File(getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt");
+//        System.out.println("start");
+//        String s=null;
+//
+//        if(f.exists()!=false){
+//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//            BufferedReader br = null;
+//            try {
+//                br = new BufferedReader(new FileReader(f));
+//                s = br.readLine();
+//                br.close();
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//            intent.putExtra("User_details",s);
+//            System.out.println("file exist");
+//            startActivity(intent);
+//            finish();
+//        }
 
 
 //        google signin
