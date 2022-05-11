@@ -4,7 +4,7 @@
     android:layout_height="100dp"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="@layout/description_book"
-    android:background="@drawable/bg_blue">
+    android:background="#12151a">
 
     <TextView
         android:id="@+id/textView3"
@@ -13,7 +13,8 @@
         android:text="Would you like to place book on hold?"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/yes"
@@ -21,7 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
-        android:text="Yes" />
+        android:text="Yes"
+        android:layout_marginLeft="10dp"/>
 
     <Button
         android:id="@+id/no"
@@ -29,5 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/yes"
         android:layout_alignParentRight="true"
-        android:text="No" />
+        android:text="No"
+        android:layout_marginRight="10dp"/>
 </RelativeLayout>
