@@ -1,6 +1,7 @@
 package com.example.libraso.Signup_Login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.ProgressDialog;
@@ -39,7 +40,6 @@ public class GoogleLogin extends AppCompatActivity {
     String TAG="GoogleLogin";
     ImageButton signin;
     GoogleSignInClient mGoogleSignInClient;
-    ProgressDialog progressdialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +50,12 @@ public class GoogleLogin extends AppCompatActivity {
         tablayout=findViewById(R.id.tablayout);
         viewpage=findViewById(R.id.viewpager);
 
-        tablayout.addTab(tablayout.newTab().setText("Login"));
-        tablayout.addTab(tablayout.newTab().setText("Signup"));
-        tablayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        final ls_adapter adapter = new ls_adapter(getSupportFragmentManager(),this,tablayout.getTabCount());
+        tablayout.setupWithViewPager(viewpage);
+        VPadapter adapter = new VPadapter(getSupportFragmentManager(), 1);
+        adapter.addFragment(new login_fragment(),"Login");
+        adapter.addFragment(new Signup_fragment(),"Signup");
         viewpage.setAdapter(adapter);
-        viewpage.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablayout));
+
 
 
 //        File f;
@@ -95,16 +94,9 @@ public class GoogleLogin extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressdialog= new ProgressDialog(GoogleLogin.this);
-                progressdialog.show();
-                progressdialog.setContentView(R.layout.progress_dialog);
-                progressdialog.getWindow().setBackgroundDrawableResource(
-                        android.R.color.transparent
-                );
 
                 switch (view.getId()) {
                     case R.id.sign_in_button:
-                        progressdialog.dismiss();
                         signIn();
                         break;
                     // ...
@@ -161,8 +153,7 @@ public class GoogleLogin extends AppCompatActivity {
 
             String path= getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt";
             FileOutputStream writer = null;
-            //ADD USER ID NUMBERRRRRR
-            String obj=String.valueOf("{\"first_name\":\""+personGivenName+"\",\"last_name\":\""+personFamilyName+"\",\"username\":\""+personName+"\",\"email\":\""+personEmail+"\"}");
+            String obj=String.valueOf("{\"first_name\":\""+personGivenName+"\",\"last_name\":\""+personFamilyName+"\",\"username\":\""+personName+"\",\"email\":\""+personEmail+"\",\"is_admin\":\"false\"}");
             try {
                 writer = new FileOutputStream(path, false);
                 writer.write(obj.getBytes());

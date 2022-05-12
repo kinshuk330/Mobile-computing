@@ -1,5 +1,7 @@
 package com.example.libraso.Events;
 
+import android.graphics.Bitmap;
+
 import com.example.libraso.books;
 
 import java.text.ParseException;
@@ -11,8 +13,9 @@ private String end_time;
 private String title;
 private String venue;
 private String description;
+private Bitmap image;
 
-Event(String description,String start_time,String end_time,String title,String venue)
+Event(String description,String start_time,String end_time,String title,String venue, Bitmap image)
 
 {
     this.description=description;
@@ -20,6 +23,12 @@ Event(String description,String start_time,String end_time,String title,String v
     this.start_time=start_time;
     this.title=title;
     this.venue=venue;
+    this.image=image;
+}
+
+Event()
+{
+
 }
 
 
@@ -61,6 +70,14 @@ Event(String description,String start_time,String end_time,String title,String v
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Bitmap getImage() {
+        return image;
+    }
+
+    public void setImage(Bitmap image) {
+        this.image = image;
     }
 }
 
