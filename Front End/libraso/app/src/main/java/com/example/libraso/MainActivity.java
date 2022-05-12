@@ -153,10 +153,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fm.beginTransaction().replace(R.id.fragment_container,
                         new upcoming_events()).commit();
                 break;
-            case R.id.fine:
-                fm.beginTransaction().replace(R.id.fragment_container,
-                        new fine()).commit();
-                break;
+//            case R.id.fine:
+//                fm.beginTransaction().replace(R.id.fragment_container,
+//                        new fine()).commit();
+//                break;
             case R.id.Complaint:
                 fm.beginTransaction().replace(R.id.fragment_container,
                         new Complaint()).commit();
