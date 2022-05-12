@@ -11,7 +11,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.example.libraso.Admin.Admin_activity;
 import com.example.libraso.Signup_Login.GoogleLogin;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -53,18 +57,28 @@ public class Splash_Screen extends AppCompatActivity {
                 f = new File(getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt");
                 System.out.println("start");
                 String s=null;
-                if(f.exists()!=false){
-                    intent = new Intent(getApplicationContext(), MainActivity.class);
+                if(f.exists()){
                     BufferedReader br = null;
                     try {
                         br = new BufferedReader(new FileReader(f));
                         s = br.readLine();
                         br.close();
+                        JSONObject user_account= new JSONObject(s);
+                        if (user_account.getBoolean("is_staff"))
+                            intent = new Intent(getApplicationContext(), Admin_activity.class);
+                        else
+                            intent = new Intent(getApplicationContext(), MainActivity.class);
+
+
+
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+
 
                     intent.putExtra("User_details",s);
                     System.out.println("file exist");
