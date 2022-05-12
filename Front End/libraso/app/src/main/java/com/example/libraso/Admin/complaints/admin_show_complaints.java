@@ -106,25 +106,25 @@ private ArrayList<complaints_class>  complaint_list;
                 //This code is executed if the server responds, whether or not the response contains data.
                 //The String 'response' contains the server's response.
                 try {
-                    JSONObject object = new JSONObject(response);
+                    JSONArray object = new JSONArray(response);
                     System.out.println(object.toString());
-//                    JSONArray obj  = object.getJSONArray("data");
-//
-//                    for (int i = 0; i <obj.length() ; i++) {
-//                        JSONObject tempobj=obj.getJSONObject(i);
-//
-//                        if(tempobj.getBoolean("status"))
-//                            continue;
-//                        complaints_class t = new complaints_class();
-//                        t.setTitle(tempobj.getString("title"));
-//                        t.setDescritption(tempobj.getString("start_time"));
-//                        t.setUserid(tempobj.getInt("user_id"));
-//
-//                        complaint_list.add(t);
-//                        System.out.println("reciieved response");
-//
-//
-//                    }
+                    JSONArray obj  = object;
+
+                    for (int i = 0; i <obj.length() ; i++) {
+                        JSONObject tempobj=obj.getJSONObject(i);
+
+                        if(tempobj.getBoolean("status"))
+                            continue;
+                        complaints_class t = new complaints_class();
+                        t.setTitle(tempobj.getString("title"));
+                        t.setDescritption(tempobj.getString("description"));
+                        t.setUserid(tempobj.getInt("user_id"));
+//                        fetch_username();
+                        complaint_list.add(t);
+                        System.out.println("reciieved response");
+
+
+                    }
                     adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -143,5 +143,7 @@ private ArrayList<complaints_class>  complaint_list;
         MyRequestQueue.add(MyStringRequest);
 
     }
+
+
 
 }

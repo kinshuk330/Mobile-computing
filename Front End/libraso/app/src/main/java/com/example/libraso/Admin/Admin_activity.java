@@ -26,7 +26,7 @@ import com.example.libraso.Loading;
 import com.example.libraso.R;
 import com.example.libraso.Signup_Login.GoogleLogin;
 import com.example.libraso.Suggest_ebook;
-import com.example.libraso.fine;
+//import com.example.libraso.fine;
 import com.example.libraso.show_book_grid;
 import com.example.libraso.show_holds.show_all_holds;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -161,10 +161,10 @@ public class Admin_activity extends AppCompatActivity implements NavigationView.
                 fm.beginTransaction().replace(R.id.fragment_container,
                         new upcoming_events()).commit();
                 break;
-            case R.id.fine:
-                fm.beginTransaction().replace(R.id.fragment_container,
-                        new fine()).commit();
-                break;
+//            case R.id.fine:
+//                fm.beginTransaction().replace(R.id.fragment_container,
+//                        new fine()).commit();
+//                break;
             case R.id.Complaint:
                 fm.beginTransaction().replace(R.id.fragment_container,
                         new Complaint()).commit();
