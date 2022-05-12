@@ -19,6 +19,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.libraso.Admin.complaints.admin_show_complaints;
 import com.example.libraso.Complaint;
 import com.example.libraso.Events.upcoming_events;
 import com.example.libraso.Loading;
@@ -151,9 +152,9 @@ public class Admin_activity extends AppCompatActivity implements NavigationView.
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.issue_book:
+            case R.id.admin_show_complaints:
                 fm.beginTransaction().replace(R.id.fragment_container,
-                        new show_book_grid(fm)).commit();
+                        new admin_show_complaints()).commit();
                 break;
 
             case R.id.event:
