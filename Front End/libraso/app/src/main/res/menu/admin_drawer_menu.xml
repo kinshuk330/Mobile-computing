@@ -7,15 +7,20 @@
 
     <group>
         <item
+            android:id="@+id/admin_generate_library"
+            android:icon="@drawable/ic_event"
+            android:title="Library Report"/>
+        <item
             android:id="@+id/admin_add_student"
             android:icon="@drawable/ic_issue_book"
-            android:title="Add Records"/>
+            android:title="Add Student Records"/>
 
 
         <item
             android:id="@+id/admin_add_books"
             android:icon="@drawable/ic_suggest_book"
-            android:title="Add or Remove Books"/>
+            android:title="Add Books"/>
+
 
         <item
             android:id="@+id/admin_show_complaints"
@@ -27,10 +32,16 @@
             android:icon="@drawable/ic_suggest_book"
             android:title="Add Workshops"/>
 
+
         <item
-            android:id="@+id/admin_generate_library"
+            android:id="@+id/admin_show_holds"
             android:icon="@drawable/ic_event"
-            android:title="Upcoming Events"/>
+            android:title="Books on Holds"/>
+
+        <item
+            android:id="@+id/admin_show_issued"
+            android:icon="@drawable/ic_event"
+            android:title="Books issued"/>
 
 
     </group>
