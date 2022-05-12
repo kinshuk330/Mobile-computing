@@ -2,8 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="300dp"
-    android:layout_height="100dp">
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="#18202e">
 
     <ImageView
         android:id="@+id/event_image"
@@ -22,9 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="11dp"
+        android:layout_marginStart="104dp"
         android:layout_marginTop="4dp"
         android:text="Title title"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/event_image"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,9 +36,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="11dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="2dp"
         android:text="Start Time:"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/event_image"
         app:layout_constraintTop_toBottomOf="@+id/event_title" />
@@ -46,9 +49,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="24dp"
         android:text="End Time:"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/event_starttime"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,9 +61,10 @@
         android:id="@+id/event_venue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="8dp"
         android:text="Venue:"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/event_image"
         app:layout_constraintTop_toBottomOf="@+id/event_starttime" />

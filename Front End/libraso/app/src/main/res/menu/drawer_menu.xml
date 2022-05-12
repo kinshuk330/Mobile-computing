@@ -36,15 +36,7 @@
             android:icon="@drawable/ic_issue_book"
             android:title="See all current holds"/>
 
-        <item
-            android:id="@+id/book_seating"
-            android:icon="@drawable/ic_book_seating"
-            android:title="Book seating"></item>
 
-        <item
-            android:id="@+id/book_event"
-            android:icon="@drawable/ic_book_event"
-            android:title="Discussion Room Booking"></item>
 
 
     </group>
