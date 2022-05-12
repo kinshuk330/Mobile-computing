@@ -1,8 +1,12 @@
 package com.example.libraso;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
@@ -29,6 +33,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.libraso.Signup_Login.GoogleLogin;
 import com.example.libraso.show_holds.hold_adapter;
 
 import org.json.JSONArray;
@@ -58,7 +63,6 @@ public class show_book_grid extends Fragment {
     static ArrayList<books> Book_list;
     private FragmentManager fm;
 
-//    private Context context;
 
     public show_book_grid(FragmentManager fm){
 
@@ -76,6 +80,7 @@ public class show_book_grid extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         fetchlist();
         recyclerView = view.findViewById(R.id.recyclerview);
         adapter = new MyAdapter(getContext(),titles,images);
@@ -93,7 +98,10 @@ public class show_book_grid extends Fragment {
     public void fetchlist(){
         titles = new ArrayList<>();
         images = new ArrayList<>();
+        getActivity().getApplicationContext().sendBroadcast(new Intent("START_LOADING").setFlags(Intent.FLAG_EXCLUDE_STOPPED_PACKAGES));
         fetch_Books();
+
+
     }
 
     void fetch_Books()
@@ -107,6 +115,7 @@ public class show_book_grid extends Fragment {
                 //This code is executed if the server responds, whether or not the response contains data.
                 //The String 'response' contains the server's response.
                 try {
+
                     JSONArray obj = new JSONArray(response);
 
                     for (int i = 0; i <obj.length() ; i++) {
@@ -131,6 +140,7 @@ public class show_book_grid extends Fragment {
 
 
                     }
+                    getActivity().getApplicationContext().sendBroadcast(new Intent("STOP_LOADING").setFlags(Intent.FLAG_EXCLUDE_STOPPED_PACKAGES));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -234,6 +244,7 @@ public class show_book_grid extends Fragment {
 
 
     }
+
 
 }
 

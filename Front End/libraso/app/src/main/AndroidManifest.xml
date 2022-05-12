@@ -4,7 +4,7 @@
     package="com.example.libraso">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,22 +14,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Libraso">
         <activity
-            android:name=".Signup_Login.GoogleLogin"
+            android:name=".Splash_Screen"
             android:exported="true"
-            android:theme="@style/Theme.Libraso.NoActionBar"
-            >
-
-
+            android:theme="@style/Theme.Libraso.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".Signup_Login.GoogleLogin"
             android:exported="true"
             android:theme="@style/Theme.Libraso.NoActionBar">
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Libraso.NoActionBar"></activity>
     </application>
 
 </manifest>

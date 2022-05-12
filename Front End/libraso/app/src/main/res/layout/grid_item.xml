@@ -10,16 +10,16 @@
     <androidx.cardview.widget.CardView
         android:layout_width="181dp"
         android:layout_height="262dp"
-        android:backgroundTint="@android:color/transparent"
         android:elevation="10dp"
         app:cardElevation="2dp"
+        app:cardBackgroundColor="#18202e"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="5dp"
-        app:cardPreventCornerOverlap="false">
+        app:cardCornerRadius="20dp"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -42,6 +42,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="Suggest"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 

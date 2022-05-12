@@ -10,16 +10,16 @@
     <androidx.cardview.widget.CardView
         android:layout_width="181dp"
         android:layout_height="500dp"
-        android:backgroundTint="@android:color/transparent"
         android:elevation="10dp"
+        app:cardBackgroundColor="#18202e"
+        app:cardCornerRadius="5dp"
         app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="5dp"
-        app:cardPreventCornerOverlap="false">
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -31,7 +31,8 @@
                 android:layout_height="150dp"
                 android:layout_centerHorizontal="true"
                 android:padding="23dp"
-                android:src="@drawable/ic_suggest_book" />
+                android:src="@drawable/ic_suggest_book"
+                />
 
 
             <TextView
@@ -43,7 +44,9 @@
                 android:text="Name"
                 android:textAlignment="center"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
             <TextView
                 android:id="@+id/hold_book_date"
                 android:layout_width="wrap_content"
@@ -53,7 +56,8 @@
                 android:text="on hold since"
                 android:textAlignment="center"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/hold_book_due"
@@ -64,7 +68,8 @@
                 android:text="onhold till"
                 android:textAlignment="center"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/hold_book_ISBN"
@@ -75,8 +80,8 @@
                 android:text="ISBN"
                 android:textAlignment="center"
                 android:textSize="22sp"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
 
 
         </RelativeLayout>

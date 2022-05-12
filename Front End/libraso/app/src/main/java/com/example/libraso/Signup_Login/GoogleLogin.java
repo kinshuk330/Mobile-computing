@@ -3,11 +3,13 @@ package com.example.libraso.Signup_Login;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -37,10 +39,12 @@ public class GoogleLogin extends AppCompatActivity {
     String TAG="GoogleLogin";
     ImageButton signin;
     GoogleSignInClient mGoogleSignInClient;
+    ProgressDialog progressdialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_google_login);
 //      app signin
         tablayout=findViewById(R.id.tablayout);
@@ -55,29 +59,29 @@ public class GoogleLogin extends AppCompatActivity {
         viewpage.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablayout));
 
 
-        File f;
-        f = new File(getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt");
-        System.out.println("start");
-        String s=null;
-
-        if(f.exists()!=false){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            BufferedReader br = null;
-            try {
-                br = new BufferedReader(new FileReader(f));
-                s = br.readLine();
-                br.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            intent.putExtra("User_details",s);
-            System.out.println("file exist");
-            startActivity(intent);
-            finish();
-        }
+//        File f;
+//        f = new File(getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt");
+//        System.out.println("start");
+//        String s=null;
+//
+//        if(f.exists()!=false){
+//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//            BufferedReader br = null;
+//            try {
+//                br = new BufferedReader(new FileReader(f));
+//                s = br.readLine();
+//                br.close();
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//            intent.putExtra("User_details",s);
+//            System.out.println("file exist");
+//            startActivity(intent);
+//            finish();
+//        }
 
 
 //        google signin
@@ -91,8 +95,16 @@ public class GoogleLogin extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressdialog= new ProgressDialog(GoogleLogin.this);
+                progressdialog.show();
+                progressdialog.setContentView(R.layout.progress_dialog);
+                progressdialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent
+                );
+
                 switch (view.getId()) {
                     case R.id.sign_in_button:
+                        progressdialog.dismiss();
                         signIn();
                         break;
                     // ...
