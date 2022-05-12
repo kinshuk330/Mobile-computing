@@ -117,29 +117,31 @@
 
                 <EditText
                     android:id="@+id/suggestion_description"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_width="388dp"
+                    android:layout_height="347dp"
+                    android:layout_marginLeft="12dp"
                     android:layout_marginTop="15dp"
+
+                    android:layout_marginRight="30dp"
                     android:background="@drawable/ls_edittext_bg"
                     android:ems="10"
-
                     android:gravity="top|left"
                     android:hint="Description"
                     android:inputType="textPersonName"
                     android:paddingLeft="20dp"
                     android:paddingTop="15dp"
                     android:paddingBottom="15dp"
+                    android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHeight_percent=".60"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/suggestion_radiogroup"
-                    app:layout_constraintVertical_bias="1.0"
+                    app:layout_constraintVertical_bias="0.0"
                     app:layout_constraintWidth_percent=".97" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
