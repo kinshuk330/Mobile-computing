@@ -151,14 +151,14 @@ public class Admin_activity extends AppCompatActivity implements NavigationView.
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.issue_book:
+            case R.id.admin_add_books:
                 fm.beginTransaction().replace(R.id.fragment_container,
-                        new show_book_grid(fm)).commit();
+                        new admin_add_books()).commit();
                 break;
 
-            case R.id.event:
+            case R.id.admin_add_student:
                 fm.beginTransaction().replace(R.id.fragment_container,
-                        new upcoming_events()).commit();
+                        new admin_add_student()).commit();
                 break;
             case R.id.fine:
                 fm.beginTransaction().replace(R.id.fragment_container,

@@ -1,14 +1,332 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.admin_add_student">
+    android:background="#12151a">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:text="Add A Student"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:paddingTop="75dp">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ISBN_add_book"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85"
+                    android:textColorHint="@color/white"
+                    app:boxBackgroundColor="@null"
+                    app:boxBackgroundMode="filled"
+                    app:helperTextTextColor="@color/white"
+                    app:hintTextColor="@color/white">
+
+                    <EditText
+                        android:id="@+id/signup_user_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#18202e"
+                        android:textColor="@color/white"
+                        android:ems="10"
+                        android:hint="User Name"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_signup_First_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ISBN_add_book"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85"
+                    android:textColorHint="@color/white"
+                    app:boxBackgroundColor="@null"
+                    app:boxBackgroundMode="filled"
+                    app:helperTextTextColor="@color/white"
+                    app:hintTextColor="@color/white">
+
+                    <EditText
+                        android:id="@+id/title_add_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="#18202e"
+                        android:textColor="@color/white"
+                        android:ems="10"
+                        android:hint="First Name"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_signup_last_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_signup_First_name"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85"
+                    android:textColorHint="@color/white"
+                    app:boxBackgroundColor="@null"
+                    app:boxBackgroundMode="filled"
+                    app:helperTextTextColor="@color/white"
+                    app:hintTextColor="@color/white">
+
+                    <EditText
+                        android:id="@+id/author_add_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="#18202e"
+                        android:textColor="@color/white"
+                        android:ems="10"
+                        android:hint="Last_Name"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_signup_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_signup_last_name"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85"
+                    android:textColorHint="@color/white"
+                    app:boxBackgroundColor="@null"
+                    app:boxBackgroundMode="filled"
+                    app:helperTextTextColor="@color/white"
+                    app:hintTextColor="@color/white">
+
+                    <EditText
+                        android:id="@+id/edition_add_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="#18202e"
+                        android:textColor="@color/white"
+                        android:ems="10"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColorHint="@color/white"
+                        app:boxBackgroundColor="@null"
+                        app:boxBackgroundMode="filled"
+                        app:helperTextTextColor="@color/white"
+                        app:hintTextColor="@color/white"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_signup_email"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85"
+                    android:id="@+id/signup_gender"
+
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="#18202e"
+                    android:textColor="@color/white"
+                    android:ems="10"
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:textColorHint="@color/white"
+                    app:boxBackgroundColor="@null"
+                    app:boxBackgroundMode="filled"
+                    app:helperTextTextColor="@color/white"
+                    app:hintTextColor="@color/white"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gender: "
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:background="#18202e"
+                        android:textColor="@color/white">
+
+                    </TextView>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male"
+                        android:layout_marginLeft="40dp"
+                        android:textColorHint="@color/white"
+                        app:boxBackgroundColor="@null"
+                        app:boxBackgroundMode="filled"
+                        app:helperTextTextColor="@color/white"
+                        app:hintTextColor="@color/white"
+                        android:background="#18202e"
+                        android:textColor="@color/white"
+                        >
+
+                    </RadioButton>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="Female"
+                        android:textColorHint="@color/white"
+                        app:boxBackgroundColor="@null"
+                        app:boxBackgroundMode="filled"
+                        app:helperTextTextColor="@color/white"
+                        app:hintTextColor="@color/white"
+                        android:background="#18202e"
+                        android:textColor="@color/white">
+
+                    </RadioButton>
+                </RadioGroup>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_signup_password"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/signup_gender"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85"
+                    app:passwordToggleEnabled="true"
+                    android:textColorHint="@color/white"
+                    app:boxBackgroundColor="@null"
+                    app:boxBackgroundMode="filled"
+                    app:helperTextTextColor="@color/white"
+                    app:hintTextColor="@color/white">
+
+                    <EditText
+                        android:id="@+id/description_add_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:ems="10"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:background="#18202e"
+                        android:textColor="@color/white"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_signup_confirm_password"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_signup_password"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85"
+                    app:passwordToggleEnabled="true"
+                    android:textColorHint="@color/white"
+                    app:boxBackgroundColor="@null"
+                    app:boxBackgroundMode="filled"
+                    app:helperTextTextColor="@color/white"
+                    app:hintTextColor="@color/white">
+
+                    <EditText
+                        android:id="@+id/signup_confirm_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:ems="10"
+                        android:hint="Confirm Password"
+                        android:inputType="textPassword"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:background="#18202e"
+                        android:textColor="@color/white"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_signup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/ls_button_bg"
+                    android:text="Signup"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_signup_confirm_password"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

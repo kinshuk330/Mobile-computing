@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_signup_user_name"
+                    android:id="@+id/ISBN_add_book"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -52,12 +52,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias=".5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/layout_signup_user_name"
+                    app:layout_constraintTop_toBottomOf="@+id/ISBN_add_book"
                     app:layout_constraintVertical_bias="0"
                     app:layout_constraintWidth_percent=".85">
 
                     <EditText
-                        android:id="@+id/signup_first_name"
+                        android:id="@+id/title_add_book"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="15dp"
@@ -83,7 +83,7 @@
                     app:layout_constraintWidth_percent=".85">
 
                     <EditText
-                        android:id="@+id/signup_last_name"
+                        android:id="@+id/author_add_book"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="15dp"
@@ -109,7 +109,7 @@
                     app:layout_constraintWidth_percent=".85">
 
                     <EditText
-                        android:id="@+id/signup_email"
+                        android:id="@+id/edition_add_book"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="15dp"
@@ -188,7 +188,7 @@
                     app:passwordToggleEnabled="true">
 
                     <EditText
-                        android:id="@+id/signup_password"
+                        android:id="@+id/description_add_book"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="15dp"

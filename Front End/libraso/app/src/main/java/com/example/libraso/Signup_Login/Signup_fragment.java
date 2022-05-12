@@ -59,10 +59,10 @@ public class Signup_fragment extends Fragment {
         View view = inflater.inflate(R.layout.ls_signup_fragment, container, false);
         signup=view.findViewById(R.id.btn_signup);
         user_name=view.findViewById(R.id.signup_user_name);
-        first_name=view.findViewById(R.id.signup_first_name);
-        last_name=view.findViewById(R.id.signup_last_name);
-        email=view.findViewById(R.id.signup_email);
-        password=view.findViewById(R.id.signup_password);
+        first_name=view.findViewById(R.id.title_add_book);
+        last_name=view.findViewById(R.id.author_add_book);
+        email=view.findViewById(R.id.edition_add_book);
+        password=view.findViewById(R.id.description_add_book);
         confirm_password=view.findViewById(R.id.signup_confirm_password);
         gender=view.findViewById(R.id.signup_gender);
 
