@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.libraso.Admin.Admin_activity;
 import com.example.libraso.MainActivity;
 import com.example.libraso.R;
 
@@ -87,11 +88,21 @@ private EditText password;
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    intent.putExtra("User_details",obj.getJSONObject("user").toString());
+                    if (obj.getJSONObject("user").getBoolean("is_superuser"))
+                    {
+                        Intent intent = new Intent(getContext(), Admin_activity.class);
+                        intent.putExtra("User_details", obj.getJSONObject("user").toString());
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+                        else
+                    {
+                        Intent intent = new Intent(getContext(), MainActivity.class);
+                        intent.putExtra("User_details", obj.getJSONObject("user").toString());
 // {"user":{"id":2,"password":"pbkdf2_sha256$320000$7XyTW6fcLjVIVKRsTO8U9X$Of2CGFAF/XB3SsD6jxJyD82+iYCd31t6lj0URuaD7ks=","last_login":null,"is_superuser":false,"first_name":"Kinshuk","last_name":"Chopra","username":"kinshuk","is_staff":false,"email":"Kinshuk@gmail.com","gender":"M","user_type":"PR","groups":[],"user_permissions":[]},"token":"7f32450e6122550e635894cb7e652051c473c236fbed42e213af127c91bec26a"}
-                    startActivity(intent);
-                    getActivity().finish();
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -103,6 +114,7 @@ private EditText password;
             public void onErrorResponse(VolleyError error) {
                 //This code is executed if there is an error.
                 System.out.println(error);
+                System.out.println(error.networkResponse);
             }
         }) {
             @Override
