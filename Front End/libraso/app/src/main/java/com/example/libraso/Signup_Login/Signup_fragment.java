@@ -167,6 +167,7 @@ public class Signup_fragment extends Fragment {
                 MyData.put("gender", gender);
                 MyData.put("user_type", "ST");
                 MyData.put("password", password);
+                MyData.put("is_admin","F");
                 return MyData;
             }
         };
