@@ -19,14 +19,13 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.libraso.Admin.complaints.admin_show_complaints;
 import com.example.libraso.Complaint;
 import com.example.libraso.Events.upcoming_events;
 import com.example.libraso.Loading;
 import com.example.libraso.R;
 import com.example.libraso.Signup_Login.GoogleLogin;
 import com.example.libraso.Suggest_ebook;
-//import com.example.libraso.fine;
+import com.example.libraso.fine;
 import com.example.libraso.show_book_grid;
 import com.example.libraso.show_holds.show_all_holds;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -152,19 +151,19 @@ public class Admin_activity extends AppCompatActivity implements NavigationView.
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.admin_show_complaints:
+            case R.id.admin_add_books:
                 fm.beginTransaction().replace(R.id.fragment_container,
-                        new admin_show_complaints()).commit();
+                        new admin_add_books()).commit();
                 break;
 
-            case R.id.event:
+            case R.id.admin_add_student:
                 fm.beginTransaction().replace(R.id.fragment_container,
-                        new upcoming_events()).commit();
+                        new admin_add_student()).commit();
                 break;
-//            case R.id.fine:
-//                fm.beginTransaction().replace(R.id.fragment_container,
-//                        new fine()).commit();
-//                break;
+            case R.id.fine:
+                fm.beginTransaction().replace(R.id.fragment_container,
+                        new fine()).commit();
+                break;
             case R.id.Complaint:
                 fm.beginTransaction().replace(R.id.fragment_container,
                         new Complaint()).commit();
