@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="181dp"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:elevation="10dp"
         app:cardBackgroundColor="#18202e"
         app:cardCornerRadius="5dp"
@@ -79,9 +79,9 @@
                 android:layout_centerHorizontal="true"
                 android:text="ISBN"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"/>
+                android:textStyle="bold" />
 
 
         </RelativeLayout>

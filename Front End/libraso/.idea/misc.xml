@@ -43,6 +43,8 @@
         <entry key="app/src/main/res/layout/activity_google_login.xml" value="0.1453125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/admin_add_book.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/admin_show_all_holds.xml" value="0.11956521739130435" />
+        <entry key="app/src/main/res/layout/admin_show_all_issues.xml" value="0.11956521739130435" />
         <entry key="app/src/main/res/layout/confirmation_popup.xml" value="0.18" />
         <entry key="app/src/main/res/layout/description_book.xml" value="0.25" />
         <entry key="app/src/main/res/layout/ebook_request.xml" value="0.1" />
@@ -50,7 +52,7 @@
         <entry key="app/src/main/res/layout/fine.xml" value="0.17753623188405798" />
         <entry key="app/src/main/res/layout/fragment_add_books.xml" value="0.16831683168316833" />
         <entry key="app/src/main/res/layout/fragment_add_student.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_add_workshop.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_add_workshop.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_complaint.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_suggest_ebook.xml" value="0.22" />
         <entry key="app/src/main/res/layout/grid_item.xml" value="0.1" />
@@ -60,8 +62,10 @@
         <entry key="app/src/main/res/layout/ls_signup_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.33" />
         <entry key="app/src/main/res/layout/show_all_holds.xml" value="0.10461956521739131" />
+        <entry key="app/src/main/res/layout/show_all_issues.xml" value="0.11956521739130435" />
         <entry key="app/src/main/res/layout/show_book.xml" value="0.18" />
         <entry key="app/src/main/res/layout/upcoming_events.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/admin_drawer_menu.xml" value="0.33" />
         <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.25" />
       </map>
     </option>

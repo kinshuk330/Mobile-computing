@@ -36,6 +36,11 @@
             android:icon="@drawable/ic_issue_book"
             android:title="See all current holds"/>
 
+        <item
+            android:id="@+id/show_all_issues"
+            android:icon="@drawable/ic_issue_book"
+            android:title="See all current issues"/>
+
 
 
 

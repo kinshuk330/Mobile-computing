@@ -1,19 +1,14 @@
-package com.example.libraso.show_holds;
+package com.example.libraso.Admin.show_holds;
 
-import android.app.Service;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -31,47 +26,39 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.libraso.MainActivity;
-import com.example.libraso.MyAdapter;
 import com.example.libraso.R;
 import com.example.libraso.books;
-import com.example.libraso.show_book_grid;
+import com.example.libraso.show_holds.Hold;
+import com.example.libraso.show_holds.hold_adapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.ObjectOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-public class show_all_holds extends Fragment {
+public class admin_show_all_holds extends Fragment {
     private RecyclerView recyclerView;
     private ArrayList<String> titles;
     private ArrayList<Bitmap> images;
-    private hold_adapter adapter;
-    private ArrayList<Hold> hold_list;
+    private admin_hold_adapter adapter;
+    private ArrayList<admin_Hold> hold_list;
     private FragmentManager fm;
 
 //    private Context context;
 
-    public show_all_holds(FragmentManager fm){
+    public admin_show_all_holds(FragmentManager fm){
 
 
         this.fm = fm;
     }
-    public show_all_holds()
+    public admin_show_all_holds()
     {}
 
     @Nullable
@@ -85,7 +72,7 @@ public class show_all_holds extends Fragment {
         fetchlist();
 
         recyclerView = view.findViewById(R.id.recyclerview_holds);
-        adapter = new hold_adapter(getContext(),hold_list);
+        adapter = new admin_hold_adapter(getContext(),hold_list);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -102,7 +89,7 @@ public class show_all_holds extends Fragment {
         fetch_holds();
         System.out.println(hold_list.size()+" !!!!!!!!!!!!!!!!!! holdlist");
 
-        for (Hold temp: hold_list)
+        for (admin_Hold temp: hold_list)
         {
             System.out.println(adapter.getItemCount()+" !!!!!!!!!!!!!!!!!! item");
 
@@ -133,10 +120,10 @@ public class show_all_holds extends Fragment {
 
                         JSONObject tempobj=obj.getJSONObject(i);
                         System.out.println(" asd " + MainActivity.userid);
-                        if(tempobj.getInt("user_id")!= MainActivity.userid || tempobj.getBoolean("is_issued"))
+                        if(tempobj.getBoolean("is_issued"))
                             continue;
                         System.out.println(" asd " + tempobj.getInt("id"));
-                        Hold temp=new Hold(
+                        admin_Hold temp=new admin_Hold(
                                 tempobj.getInt("id"),
                                 tempobj.getString("due_date"),
                                 tempobj.getString("issued_date"),

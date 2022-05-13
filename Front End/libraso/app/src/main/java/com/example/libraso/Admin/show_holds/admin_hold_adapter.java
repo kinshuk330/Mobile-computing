@@ -1,35 +1,27 @@
-package com.example.libraso.show_holds;
+package com.example.libraso.Admin.show_holds;
 
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.libraso.MainActivity;
-import com.example.libraso.MyAdapter;
 import com.example.libraso.R;
-import com.example.libraso.description_book;
+import com.example.libraso.show_holds.Hold;
 
 import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.List;
 
-public class hold_adapter extends RecyclerView.Adapter<hold_adapter.ViewHolder>
+public class admin_hold_adapter extends RecyclerView.Adapter<admin_hold_adapter.ViewHolder>
 
 {
     private Context context;
-    private ArrayList<Hold> hold_list;
-    hold_adapter(Context context, ArrayList<Hold> list) {
+    private ArrayList<admin_Hold> hold_list;
+    admin_hold_adapter(Context context, ArrayList<admin_Hold> list) {
         this.context = context;
         this.hold_list = list;
 //        this.fm = fm;)
