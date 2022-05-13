@@ -1,23 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#12151a"
-    tools:context=".Admin.admin_add_workshop">
+    android:background="#12151a">
 
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:text="TextView"
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Add A Workshop"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="40sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="2dp"
+        android:dateTextAppearance="@style/CalenderViewDateCustomText"
+        android:theme="@style/CalenderViewCustom"
+        android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="380dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ISBN_add_book"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:textColorHint="@color/white"
+                    app:boxBackgroundColor="@null"
+                    app:boxBackgroundMode="filled"
+                    app:helperTextTextColor="@color/white"
+                    app:hintTextColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85">
+
+                    <EditText
+                        android:id="@+id/start_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#18202e"
+                        android:textColor="@color/white"
+                        android:ems="10"
+                        android:hint="Start Time"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_signup_First_name"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:textColorHint="@color/white"
+                    app:boxBackgroundColor="@null"
+                    app:boxBackgroundMode="filled"
+                    app:hintTextColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ISBN_add_book"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85">
+
+                    <EditText
+                        android:id="@+id/end_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="#18202e"
+                        android:ems="10"
+                        android:hint="End Time"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_signup_last_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/white"
+                    app:hintTextColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_signup_First_name"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85">
+
+                    <EditText
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="#18202e"
+                        android:ems="10"
+                        android:hint="Title"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_signup_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/white"
+                    app:hintTextColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_signup_last_name"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85">
+
+                    <EditText
+                        android:id="@+id/venue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="#18202e"
+                        android:ems="10"
+                        android:hint="Venue"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_signup_password"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/white"
+                    app:hintTextColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_signup_email"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85"
+                    app:passwordToggleEnabled="true">
+
+                    <EditText
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="#18202e"
+                        android:ems="10"
+                        android:hint="Description"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/rating_outer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/white"
+                    app:hintTextColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias=".5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_signup_password"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintWidth_percent=".85"
+                    app:passwordToggleEnabled="true">
+
+                    <EditText
+                        android:id="@+id/image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:background="#18202e"
+                        android:ems="10"
+                        android:hint="Image url"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ls_button_bg"
+                    android:text="Signup"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rating_outer"
+                    app:layout_constraintWidth_percent=".85" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -172,9 +172,9 @@ public class Admin_activity extends AppCompatActivity implements NavigationView.
                 fm.beginTransaction().replace(R.id.fragment_container,
                         new show_all_holds()).commit();
                 break;
-            case R.id.suggest_book:
+            case R.id.admin_add_workshop:
                 fm.beginTransaction().replace(R.id.fragment_container,
-                        new Suggest_ebook()).commit();
+                        new admin_add_workshop()).commit();
                 break;
             case R.id.logout:
                 signOut();
