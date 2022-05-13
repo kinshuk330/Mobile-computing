@@ -311,7 +311,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/ls_button_bg"
-                    android:text="Signup"
+                    android:text="Add record"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
