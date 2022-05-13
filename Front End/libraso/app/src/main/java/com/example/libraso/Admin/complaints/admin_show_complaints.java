@@ -73,7 +73,7 @@ public class admin_show_complaints extends Fragment {
         }
     }
     private ArrayList<String> usernames;
-private ArrayList<complaints_class>  complaint_list;
+    private ArrayList<complaints_class>  complaint_list;
     private complaint_adapter adapter;
     private RecyclerView recycler;
 
@@ -165,7 +165,7 @@ private ArrayList<complaints_class>  complaint_list;
                     usernames.add(object.getString("first_name"));
 
                     System.out.println(object.getString("first_name"));
-                    } catch (JSONException jsonException) {
+                } catch (JSONException jsonException) {
                     jsonException.printStackTrace();
                 }
                 for (int i = 0; i < usernames.size() ; i++) {

@@ -135,9 +135,6 @@ public class Admin_activity extends AppCompatActivity implements NavigationView.
         }
         // End of code of navigation drawer
 
-        Toast toast=Toast.makeText(getApplicationContext(),"Hello MALIK!!!!!!",Toast.LENGTH_LONG);
-        toast.setMargin(50,50);
-        toast.show();
 
 
     }
