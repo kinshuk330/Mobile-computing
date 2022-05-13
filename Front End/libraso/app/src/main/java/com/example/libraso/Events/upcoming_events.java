@@ -145,6 +145,8 @@ public class upcoming_events extends Fragment {
                 titles = new ArrayList<>();
                 images = new ArrayList<>();
                 event_list.clear();
+                adapter.notifyDataSetChanged();
+
                 Calendar c = Calendar.getInstance();
                 c.set(i, i1, i2);
                 eventOccursOn = c.getTimeInMillis();
@@ -225,6 +227,8 @@ public class upcoming_events extends Fragment {
             public void onErrorResponse(VolleyError error) {
                 //This code is executed if there is an error.
                 System.out.println(error);
+                getActivity().getApplicationContext().sendBroadcast(new Intent("STOP_LOADING").setFlags(Intent.FLAG_EXCLUDE_STOPPED_PACKAGES));
+
             }
         }) ;
 
