@@ -19,6 +19,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.libraso.Admin.complaints.admin_show_complaints;
 import com.example.libraso.Admin.show_holds.admin_show_all_holds;
 import com.example.libraso.Admin.show_holds.admin_show_all_issues;
 import com.example.libraso.Complaint;
@@ -184,6 +185,14 @@ public class Admin_activity extends AppCompatActivity implements NavigationView.
                 fm.beginTransaction().replace(R.id.fragment_container,
                         new admin_show_all_issues()).commit();
                 break;
+
+
+            case R.id.admin_show_complaints:
+                fm.beginTransaction().replace(R.id.fragment_container,
+                        new admin_show_complaints()).commit();
+                break;
+
+
 
             case R.id.logout:
                 signOut();

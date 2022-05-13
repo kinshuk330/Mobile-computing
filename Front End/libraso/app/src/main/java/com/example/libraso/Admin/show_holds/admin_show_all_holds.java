@@ -1,8 +1,11 @@
 package com.example.libraso.Admin.show_holds;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -11,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,6 +55,7 @@ public class admin_show_all_holds extends Fragment {
     private ArrayList<admin_Hold> hold_list;
     private FragmentManager fm;
 
+
 //    private Context context;
 
     public admin_show_all_holds(FragmentManager fm){
@@ -64,6 +69,7 @@ public class admin_show_all_holds extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         return inflater.inflate(R.layout.show_all_holds, container, false);
     }
 
@@ -72,7 +78,7 @@ public class admin_show_all_holds extends Fragment {
         fetchlist();
 
         recyclerView = view.findViewById(R.id.recyclerview_holds);
-        adapter = new admin_hold_adapter(getContext(),hold_list);
+        adapter = new admin_hold_adapter(getContext(),hold_list,true);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -100,6 +106,8 @@ public class admin_show_all_holds extends Fragment {
         }
 
     }
+
+
 
     void fetch_holds()
     {

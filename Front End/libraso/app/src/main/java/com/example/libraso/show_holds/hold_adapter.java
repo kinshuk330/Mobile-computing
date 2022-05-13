@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +30,9 @@ public class hold_adapter extends RecyclerView.Adapter<hold_adapter.ViewHolder>
 {
     private Context context;
     private ArrayList<Hold> hold_list;
-    hold_adapter(Context context, ArrayList<Hold> list) {
+    private Boolean need_button=false;
+    hold_adapter(Context context, ArrayList<Hold> list,Boolean val) {
+        need_button=val;
         this.context = context;
         this.hold_list = list;
 //        this.fm = fm;)
@@ -62,6 +65,7 @@ public class hold_adapter extends RecyclerView.Adapter<hold_adapter.ViewHolder>
         TextView hold_book_date;
         TextView hold_book_due;
         TextView hold_book_ISBN;
+        Button convert_issue;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,6 +75,8 @@ public class hold_adapter extends RecyclerView.Adapter<hold_adapter.ViewHolder>
             hold_book_date = itemView.findViewById(R.id.hold_book_date);
             hold_book_due = itemView.findViewById(R.id.hold_book_due);
             hold_book_ISBN = itemView.findViewById(R.id.hold_book_ISBN);
+            convert_issue=itemView.findViewById(R.id.convert_book_issue);
+            convert_issue.setVisibility(View.GONE);
             itemView.setOnClickListener(this);
 
 
