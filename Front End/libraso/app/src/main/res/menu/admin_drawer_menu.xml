@@ -6,10 +6,7 @@
 
 
     <group>
-        <item
-            android:id="@+id/admin_generate_library"
-            android:icon="@drawable/ic_event"
-            android:title="Library Report"/>
+
         <item
             android:id="@+id/admin_add_student"
             android:icon="@drawable/ic_issue_book"

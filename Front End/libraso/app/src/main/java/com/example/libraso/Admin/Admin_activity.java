@@ -129,8 +129,8 @@ public class Admin_activity extends AppCompatActivity implements NavigationView.
         if (savedInstanceState == null){
             fm = getSupportFragmentManager();
             fm.beginTransaction().replace(R.id.fragment_container,
-                    new show_book_grid(fm)).commit();
-            navigationView.setCheckedItem(R.id.issue_book);
+                    new admin_add_books()).commit();
+            navigationView.setCheckedItem(R.id.admin_add_books);
         }
         // End of code of navigation drawer
 

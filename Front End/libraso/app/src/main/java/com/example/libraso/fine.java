@@ -14,10 +14,7 @@
 //import androidx.annotation.Nullable;
 //import androidx.fragment.app.Fragment;
 //
-//import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-//
 //import org.json.JSONObject;
-//import org.w3c.dom.Text;
 //
 //import java.io.BufferedInputStream;
 //import java.io.BufferedOutputStream;
@@ -28,7 +25,6 @@
 //import java.io.InputStreamReader;
 //import java.io.OutputStream;
 //import java.io.OutputStreamWriter;
-//import java.io.PipedOutputStream;
 //import java.net.HttpURLConnection;
 //import java.net.URL;
 //
