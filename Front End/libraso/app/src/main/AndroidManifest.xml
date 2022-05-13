@@ -37,6 +37,7 @@
             android:name=".Admin.Admin_activity"
             android:screenOrientation="portrait"
             android:exported="true"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/Theme.Libraso.NoActionBar"/>
         <activity
             android:name=".MainActivity"

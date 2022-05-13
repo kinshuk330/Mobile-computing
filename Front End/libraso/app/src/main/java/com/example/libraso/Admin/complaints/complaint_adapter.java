@@ -9,10 +9,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -23,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.libraso.Events.Event;
 import com.example.libraso.Events.event_adapter;
 import com.example.libraso.R;
+import com.example.libraso.books;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,7 +61,7 @@ public class complaint_adapter extends RecyclerView.Adapter<complaint_adapter.Vi
         holder.complaint_resolve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                update_complaint(complaint_list.get(position));
+                update_complaint(complaint_list.get(position),position);
 
                 complaint_list.remove(position);
                 notifyDataSetChanged();
@@ -66,65 +69,30 @@ public class complaint_adapter extends RecyclerView.Adapter<complaint_adapter.Vi
         });
     }
 
-    private void update_complaint(complaints_class temp) {
+    private void update_complaint(complaints_class temp,int position) {
+        RequestQueue MyRequestQueue = Volley.newRequestQueue(context);
+
+        String url = "https://libraso.herokuapp.com/complaint/resolve/"+String.valueOf(temp.id);
+        StringRequest MyStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //This code is executed if the server responds, whether or not the response contains data.
+                //The String 'response' contains the server's response.
+                Toast.makeText(context, "Issue resolved !!!!", Toast.LENGTH_LONG).show();
+                complaint_list.remove(position);
+                notifyDataSetChanged();
 
 
+            }
+        }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //This code is executed if there is an error.
+                System.out.println(error);
+            }
+        }) ;
 
-        RequestQueue queue = Volley.newRequestQueue(context.getApplicationContext());  // this = context
-        JSONObject params = new JSONObject();
-        try {
-            //input your API parameters
-            params.put("id", String.valueOf(temp.id));
-            params.put("title", temp.getTitle());
-            params.put("description", temp.getDescritption());
-            params.put("status", "true");
-            params.put("user_id", String.valueOf(temp.getUserid()));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        String  url = "https://libraso.herokuapp.com/complaint/resolve/"+String.valueOf(temp.id);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url,params,
-                new Response.Listener<JSONObject>()
-                {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.d("Response", response.toString());
-
-                    }
-
-
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        String body= null;
-                        try {
-                            body = new String(error.networkResponse.data,"UTF-8");
-                        } catch (UnsupportedEncodingException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-        ) {
-
-//            @Override
-//            protected Map<String, String> getParams()
-//            {
-//                Map<String, String>  params = new HashMap<String, String>();
-//                params.put("id", String.valueOf(temp.id));
-//                params.put("title", temp.getTitle());
-//                params.put("description", temp.getDescritption());
-//                params.put("status", "true");
-//                params.put("user_id", String.valueOf(temp.getUserid()));
-//                System.out.println(params.);
-//                return params;
-//            }
-
-        };
-
-        queue.add(jsonObjectRequest);
+        MyRequestQueue.add(MyStringRequest);
     }
 
     @Override

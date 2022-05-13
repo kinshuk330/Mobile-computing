@@ -92,14 +92,14 @@ View view=inflater.inflate(R.layout.fragment_add_books, container, false);
             @Override
             public void onClick(View view) {
                 add_new_books();
-                isbn.setText("");
-                title.setText("");
-                author.setText("");
-                edition.setText("");
-                desc.setText("");
-                rating.setText("");
-                no_books.setText("");
-                image_url.setText("");
+//                isbn.setText("");
+//                title.setText("");
+//                author.setText("");
+//                edition.setText("");
+//                desc.setText("");
+//                rating.setText("");
+//                no_books.setText("");
+//                image_url.setText("");
 
             }
         });
@@ -130,6 +130,14 @@ View view=inflater.inflate(R.layout.fragment_add_books, container, false);
                 //This code is executed if there is an error.
                 System.out.println(error);
                 Toast.makeText(getActivity().getApplicationContext(), "Book details are incomplete!!!!", Toast.LENGTH_LONG).show();
+
+                try {
+                    String body = new String(error.networkResponse.data,"UTF-8");
+                    System.out.println(body);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
 
 
             }

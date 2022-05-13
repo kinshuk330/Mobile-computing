@@ -72,7 +72,7 @@ public class admin_show_all_issues extends Fragment {
         fetchlist();
 
         recyclerView = view.findViewById(R.id.recyclerview_holds);
-        adapter = new admin_hold_adapter(getContext(),hold_list);
+        adapter = new admin_hold_adapter(getContext(),hold_list,false);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(gridLayoutManager);
