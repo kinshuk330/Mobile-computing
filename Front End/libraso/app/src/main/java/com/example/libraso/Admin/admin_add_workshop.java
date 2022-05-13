@@ -3,15 +3,19 @@ package com.example.libraso.Admin;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.EditText;
 
 import com.example.libraso.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -29,6 +33,7 @@ public class admin_add_workshop extends Fragment {
 
     private CalendarView calendar;
     private long eventOccursOn;
+    private EditText start_time, end_time, title, venue, description, image_url;
 
     public admin_add_workshop() {
         // Required empty public constructor
@@ -78,5 +83,27 @@ public class admin_add_workshop extends Fragment {
             }
         });
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        start_time = view.findViewById(R.id.start_time);
+        end_time = view.findViewById(R.id.end_time);
+        title = view.findViewById(R.id.title);
+        venue = view.findViewById(R.id.venue);
+        description = view.findViewById(R.id.description);
+        image_url = view.findViewById(R.id.image);
+
+        java.util.Date time= new java.util.Date((long)eventOccursOn);
+        SimpleDateFormat ft =
+                new SimpleDateFormat ("yyyy-MM-dd ");
+        if (time.equals(new java.util.Date((long)0)))
+        {
+            Log.i("asd","entered");
+            time= new java.util.Date((long)calendar.getDate());
+        }
+        String time_string = ft.format(time);
+
     }
 }
