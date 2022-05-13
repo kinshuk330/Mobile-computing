@@ -83,7 +83,7 @@ public class complaint_adapter extends RecyclerView.Adapter<complaint_adapter.Vi
             e.printStackTrace();
         }
         String  url = "https://libraso.herokuapp.com/complaint/resolve/"+String.valueOf(temp.id);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url,params,
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,params,
                 new Response.Listener<JSONObject>()
                 {
                     @Override
@@ -109,18 +109,18 @@ public class complaint_adapter extends RecyclerView.Adapter<complaint_adapter.Vi
                 }
         ) {
 
-//            @Override
-//            protected Map<String, String> getParams()
-//            {
-//                Map<String, String>  params = new HashMap<String, String>();
-//                params.put("id", String.valueOf(temp.id));
-//                params.put("title", temp.getTitle());
-//                params.put("description", temp.getDescritption());
-//                params.put("status", "true");
-//                params.put("user_id", String.valueOf(temp.getUserid()));
-//                System.out.println(params.);
-//                return params;
-//            }
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("id", String.valueOf(temp.id));
+                params.put("title", temp.getTitle());
+                params.put("description", temp.getDescritption());
+                params.put("status", "true");
+                params.put("user_id", String.valueOf(temp.getUserid()));
+                System.out.println(params.toString());
+                return params;
+            }
 
         };
 
