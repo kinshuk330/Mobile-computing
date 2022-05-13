@@ -5,7 +5,7 @@ public class complaints_class {
     private String descritption;
     private int userid;
     private String Username;
-
+    public int id;
     public complaints_class(String title, String descritption, int userid, String username) {
         Title = title;
         this.descritption = descritption;

@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="175dp"
+    android:layout_height="200dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="5dp"
+
 
     android:background="@color/black">
 <LinearLayout
@@ -22,7 +25,6 @@
             android:id="@+id/admin_complaint_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/ls_edittext_bg"
             android:ems="10"
             android:paddingLeft="20dp"
             android:paddingTop="15dp"
@@ -39,7 +41,6 @@
         android:id="@+id/admin_complaint_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ls_edittext_bg"
         android:ems="10"
         android:paddingLeft="20dp"
         android:paddingTop="15dp"
@@ -62,7 +63,6 @@
         android:id="@+id/admin_complaint_description"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ls_edittext_bg"
         android:ems="10"
         android:paddingLeft="20dp"
         android:paddingTop="15dp"
@@ -81,7 +81,6 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:text="Resolve"
-            android:background="@drawable/ls_edittext_bg"
             android:id="@+id/admin_complaint_resolve"
             />
 </LinearLayout>

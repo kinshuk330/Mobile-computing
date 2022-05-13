@@ -72,6 +72,7 @@ public class admin_show_complaints extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+    private ArrayList<String> usernames;
 private ArrayList<complaints_class>  complaint_list;
     private complaint_adapter adapter;
     private RecyclerView recycler;
@@ -89,9 +90,10 @@ private ArrayList<complaints_class>  complaint_list;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(linearLayoutManager);
         recycler.setHasFixedSize(true);
-
+        usernames=new ArrayList<>();
         recycler.setAdapter(adapter);
         fetch_complaints();
+
         return  view;
     }
     void fetch_complaints()
@@ -119,13 +121,16 @@ private ArrayList<complaints_class>  complaint_list;
                         t.setTitle(tempobj.getString("title"));
                         t.setDescritption(tempobj.getString("description"));
                         t.setUserid(tempobj.getInt("user_id"));
-//                        fetch_username();
+                        t.id=tempobj.getInt("id");
                         complaint_list.add(t);
+                        fetch_username(t.getUserid());
                         System.out.println("reciieved response");
 
 
                     }
                     adapter.notifyDataSetChanged();
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -144,6 +149,43 @@ private ArrayList<complaints_class>  complaint_list;
 
     }
 
+    private void fetch_username(int userid) {
+        RequestQueue MyRequestQueue = Volley.newRequestQueue(this.getContext());
+
+        String url = "https://libraso.herokuapp.com/users/"+String.valueOf(userid) ;
+        System.out.println(url);
+        StringRequest MyStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //This code is executed if the server responds, whether or not the response contains data.
+                //The String 'response' contains the server's response.
+                try {
+                    JSONObject object = new JSONObject(response);
+
+                    usernames.add(object.getString("first_name"));
+
+                    System.out.println(object.getString("first_name"));
+                    } catch (JSONException jsonException) {
+                    jsonException.printStackTrace();
+                }
+                for (int i = 0; i < usernames.size() ; i++) {
+                    complaint_list.get(i).setUsername(usernames.get(i));
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+
+        }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //This code is executed if there is an error.
+                System.out.println(error);
+            }
+        }) ;
+
+        MyRequestQueue.add(MyStringRequest);
+
+    }
 
 
 }
