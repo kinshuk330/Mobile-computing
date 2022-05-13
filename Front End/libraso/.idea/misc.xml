@@ -48,8 +48,9 @@
         <entry key="app/src/main/res/layout/ebook_request.xml" value="0.1" />
         <entry key="app/src/main/res/layout/event_grid.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fine.xml" value="0.17753623188405798" />
-        <entry key="app/src/main/res/layout/fragment_add_books.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_add_student.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_add_books.xml" value="0.16831683168316833" />
+        <entry key="app/src/main/res/layout/fragment_add_student.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_add_workshop.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_complaint.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_suggest_ebook.xml" value="0.22" />
         <entry key="app/src/main/res/layout/grid_item.xml" value="0.1" />

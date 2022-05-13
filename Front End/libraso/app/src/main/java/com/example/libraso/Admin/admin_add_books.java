@@ -2,11 +2,15 @@ package com.example.libraso.Admin;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.libraso.R;
 
@@ -21,6 +25,8 @@ public class admin_add_books extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private EditText isbn, title, author,edition, desc, rating, no_books;
+    private Button submit;
 
     public admin_add_books() {
         // Required empty public constructor
@@ -58,5 +64,26 @@ public class admin_add_books extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_books, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        isbn = view.findViewById(R.id.ISBN_add);
+        title = view.findViewById(R.id.title_add_book);
+        author = view.findViewById(R.id.author_add_book);
+        edition = view.findViewById(R.id.edition_add_book);
+        desc = view.findViewById(R.id.description_add_book);
+        rating = view.findViewById(R.id.rating_add_book);
+        no_books = view.findViewById(R.id.signup_confirm_password);
+        submit = view.findViewById(R.id.submit);
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 }

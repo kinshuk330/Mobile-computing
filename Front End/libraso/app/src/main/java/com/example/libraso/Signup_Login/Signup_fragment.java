@@ -57,7 +57,7 @@ public class Signup_fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.ls_signup_fragment, container, false);
-        signup=view.findViewById(R.id.btn_signup);
+        signup=view.findViewById(R.id.submit);
         user_name=view.findViewById(R.id.signup_user_name);
         first_name=view.findViewById(R.id.title_add_book);
         last_name=view.findViewById(R.id.author_add_book);

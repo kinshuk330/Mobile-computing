@@ -244,42 +244,11 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/books_url_outer"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/white"
-                    app:hintTextColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias=".5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/books_avail_outer"
-                    app:layout_constraintVertical_bias="0"
-                    app:layout_constraintWidth_percent=".85"
-                    app:passwordToggleEnabled="true">
-
-                    <EditText
-                        android:id="@+id/books_url_add_book"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="15dp"
-                        android:background="#18202e"
-                        android:ems="10"
-                        android:hint="Number of books available"
-                        android:paddingLeft="20dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:textColor="@color/white" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
 
                 <Button
-                    android:id="@+id/btn_signup"
+                    android:id="@+id/submit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/ls_button_bg"
                     android:text="Signup"
                     android:textColor="@color/white"
@@ -288,8 +257,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/books_url_outer"
-                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/books_avail_outer"
                     app:layout_constraintWidth_percent=".85" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
