@@ -14,54 +14,49 @@
         <entry key="..\:/Users/KINSHUK/Desktop/Mobile computing/Mobile-computing/Front End/libraso/app/src/main/res/layout/show_all_holds.xml" value="0.171875" />
         <entry key="..\:/Users/KINSHUK/Desktop/Mobile computing/Mobile-computing/Front End/libraso/app/src/main/res/layout/show_book.xml" value="0.25" />
         <entry key="..\:/Users/KINSHUK/Desktop/Mobile computing/Mobile-computing/Front End/libraso/app/src/main/res/menu/drawer_menu.xml" value="0.4" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/drawable/bg_round.xml" value="0.1" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/activity_admin.xml" value="0.14628623188405798" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/activity_google_login.xml" value="0.1" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/admin_nav_header.xml" value="0.14628623188405798" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/complaint_grid.xml" value="0.25" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/confirmation_popup.xml" value="0.3625" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/description_book.xml" value="0.3625" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/ebook_request.xml" value="0.3625" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/event_grid.xml" value="0.3625" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/fine.xml" value="0.1" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/fragment_add_books.xml" value="0.264" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/fragment_add_student.xml" value="0.14628623188405798" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/fragment_add_workshop.xml" value="0.1" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/fragment_complaint.xml" value="0.1" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/fragment_generate_library.xml" value="0.1" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/fragment_show_complaints.xml" value="0.1" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/fragment_suggest_ebook.xml" value="0.26268115942028986" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/grid_item.xml" value="0.1" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/holds_grid.xml" value="0.3625" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/issue_book.xml" value="0.3625" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/issue_popup.xml" value="0.2" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/nav_header.xml" value="0.11730072463768115" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/progress_dialog.xml" value="0.1" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/show_all_holds.xml" value="0.3625" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/layout/upcoming_events.xml" value="0.264" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/menu/admin_drawer_menu.xml" value="0.24615384615384617" />
+        <entry key="..\:/Users/KINSHUK/Desktop/libraso/Front End/libraso/app/src/main/res/menu/drawer_menu.xml" value="0.1" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/drawable/ls_button_bg.xml" value="0.1325" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/drawable/ls_edittext_bg.xml" value="0.1" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/drawable/ls_view_bg_curve.xml" value="0.1" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/activity_google_login.xml" value="0.4" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/activity_splash_screen.xml" value="0.136" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/confirmation_popup.xml" value="0.12083333333333333" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/description_book.xml" value="0.12083333333333333" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/ebook_request.xml" value="0.12083333333333333" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/fine.xml" value="0.12083333333333333" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/fragment_complaint.xml" value="0.4440333024976873" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/fragment_suggest_ebook.xml" value="0.1" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/grid_item.xml" value="0.12083333333333333" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/holds_grid.xml" value="0.12083333333333333" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/issue_book.xml" value="0.12083333333333333" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/issue_popup.xml" value="0.12083333333333333" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/ls_login_fragment.xml" value="0.2" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/ls_signup_fragment.xml" value="0.264" />
         <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/nav_header.xml" value="0.25" />
-        <entry key="..\:/Users/mayan/AndroidStudioProjects/Mobile-computing/Front End/libraso/app/src/main/res/layout/progress_dialog.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/ls_button_bg.xml" value="0.1395" />
-        <entry key="app/src/main/res/drawable/ls_edittext_bg.xml" value="0.137" />
-        <entry key="app/src/main/res/drawable/ls_view_bg_curve.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/mini_card_1.xml" value="0.107" />
-        <entry key="app/src/main/res/layout/activity_admin.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_google_login.xml" value="0.1453125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/admin_add_book.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/confirmation_popup.xml" value="0.18" />
         <entry key="app/src/main/res/layout/description_book.xml" value="0.25" />
         <entry key="app/src/main/res/layout/ebook_request.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/event_grid.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fine.xml" value="0.17753623188405798" />
-        <entry key="app/src/main/res/layout/fragment_add_books.xml" value="0.16831683168316833" />
-        <entry key="app/src/main/res/layout/fragment_add_student.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_add_workshop.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_complaint.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_suggest_ebook.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/grid_item.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/holds_grid.xml" value="0.17074275362318841" />
         <entry key="app/src/main/res/layout/issue_book.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/issue_popup.xml" value="0.10461956521739131" />
-        <entry key="app/src/main/res/layout/ls_signup_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/show_all_holds.xml" value="0.10461956521739131" />
-        <entry key="app/src/main/res/layout/show_book.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/upcoming_events.xml" value="0.18802083333333333" />
         <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.25" />
       </map>
     </option>

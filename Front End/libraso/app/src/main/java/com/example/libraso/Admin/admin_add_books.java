@@ -11,8 +11,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.libraso.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class admin_add_books extends Fragment {
@@ -25,7 +40,7 @@ public class admin_add_books extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private EditText isbn, title, author,edition, desc, rating, no_books;
+    private EditText isbn, title, author,edition, desc, rating, no_books,image_url;
     private Button submit;
 
     public admin_add_books() {
@@ -63,12 +78,7 @@ public class admin_add_books extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_books, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+View view=inflater.inflate(R.layout.fragment_add_books, container, false);
         isbn = view.findViewById(R.id.ISBN_add);
         title = view.findViewById(R.id.title_add_book);
         author = view.findViewById(R.id.author_add_book);
@@ -77,13 +87,69 @@ public class admin_add_books extends Fragment {
         rating = view.findViewById(R.id.rating_add_book);
         no_books = view.findViewById(R.id.signup_confirm_password);
         submit = view.findViewById(R.id.submit);
-
+        image_url=view.findViewById(R.id.imageurl_books);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                add_new_books();
+                isbn.setText("");
+                title.setText("");
+                author.setText("");
+                edition.setText("");
+                desc.setText("");
+                rating.setText("");
+                no_books.setText("");
+                image_url.setText("");
+                
             }
         });
+        return view;}
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+
+
+    }
+    void add_new_books()
+    {
+        RequestQueue MyRequestQueue = Volley.newRequestQueue(this.getContext());
+
+        String url = "https://libraso.herokuapp.com/books/";
+        StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getActivity().getApplicationContext(), "Book details submitted!!!!", Toast.LENGTH_LONG).show();
+
+            }}, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //This code is executed if there is an error.
+                System.out.println(error);
+                Toast.makeText(getActivity().getApplicationContext(), "Book details are incomplete!!!!", Toast.LENGTH_LONG).show();
+
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> MyData = new HashMap<String, String>();
+                MyData.put("ISBN", isbn.getText().toString());
+                MyData.put("title", title.getText().toString());
+                MyData.put("author",author.getText().toString());
+                MyData.put("edition", edition.getText().toString());
+                MyData.put("description", desc.getText().toString());
+                MyData.put("subjects", "blank");
+                MyData.put("rating", rating.getText().toString());
+                MyData.put("books_available",no_books.getText().toString());
+                MyData.put("book_Image_url",image_url.getText().toString());
+                return MyData;
+            }
+        };
+        MyRequestQueue.add(MyStringRequest);
 
     }
 }
