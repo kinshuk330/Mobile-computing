@@ -147,50 +147,19 @@ public class admin_add_student extends Fragment {
             public void onResponse(String response) {
                 //This code is executed if the server responds, whether or not the response contains data.
                 //The String 'response' contains the server's response.
+                Toast.makeText(getActivity().getApplicationContext(), "student details submitted!!!!", Toast.LENGTH_LONG).show();
+
                 System.out.println(response);
-                try {
-                    JSONObject obj = new JSONObject(response);
-//                    JSONObject user=obj.getJSONObject("user");
-//                    int user_id=user.getInt("id");
-//                    String user_first_name=user.getString("first_name");
-//                    String user_last_name=user.getString("last_name");
-//                    String user_username=user.getString("username");
-//                    String user_email=user.getString("email");
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    intent.putExtra("User_details",obj.toString());
-                    String path= getActivity().getApplicationContext().getDir("file", Context.MODE_PRIVATE).getAbsolutePath()+"/isuserloged.txt";
-                    FileOutputStream writer = null;
-                    try {
-                        writer = new FileOutputStream(path, false);
-                        writer.write(String.valueOf(obj.getJSONObject("user").toString()).getBytes());
-                        writer.close();
-                        System.out.println("Successfully saved");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-// {"user":{"id":2,"password":"pbkdf2_sha256$320000$7XyTW6fcLjVIVKRsTO8U9X$Of2CGFAF/XB3SsD6jxJyD82+iYCd31t6lj0URuaD7ks=","last_login":null,"is_superuser":false,"first_name":"Kinshuk","last_name":"Chopra","username":"kinshuk","is_staff":false,"email":"Kinshuk@gmail.com","gender":"M","user_type":"PR","groups":[],"user_permissions":[]},"token":"7f32450e6122550e635894cb7e652051c473c236fbed42e213af127c91bec26a"}
-                    startActivity(intent);
-                    getActivity().finish();
-                } catch (JSONException e){
-                    e.printStackTrace();
-                }
+
             }
         }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
             @Override
             public void onErrorResponse(VolleyError error) {
                 //This code is executed if there is an error.
                 System.out.println(error);
-                try {
-                    String responseBody = new String(error.networkResponse.data, "utf-8");
-                    JSONObject data = new JSONObject(responseBody);
-                    JSONArray errors = data.getJSONArray("errors");
-                    JSONObject jsonMessage = errors.getJSONObject(0);
-                    String message = jsonMessage.getString("message");
-                    Toast.makeText(getActivity().getApplicationContext(), "Fill all details carefully !!", Toast.LENGTH_LONG).show();
-                    System.out.println(message);
-                } catch (JSONException e) {
-                } catch (UnsupportedEncodingException errorr) {
-                }
+                Toast.makeText(getActivity().getApplicationContext(), "invalid credentials!!!!", Toast.LENGTH_LONG).show();
+
+
             }
         }) {
             @Override
@@ -203,7 +172,7 @@ public class admin_add_student extends Fragment {
                 MyData.put("gender", gender);
                 MyData.put("user_type", "ST");
                 MyData.put("password", password);
-                MyData.put("is_admin","F");
+                MyData.put("is_admin","false");
                 return MyData;
             }
         };

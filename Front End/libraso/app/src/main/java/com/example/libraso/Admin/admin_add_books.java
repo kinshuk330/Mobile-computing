@@ -100,7 +100,7 @@ View view=inflater.inflate(R.layout.fragment_add_books, container, false);
                 rating.setText("");
                 no_books.setText("");
                 image_url.setText("");
-                
+
             }
         });
         return view;}
