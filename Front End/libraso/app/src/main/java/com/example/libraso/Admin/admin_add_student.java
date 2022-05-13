@@ -92,7 +92,7 @@ public class admin_add_student extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.ls_signup_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_student, container, false);
         signup=view.findViewById(R.id.submit);
         user_name=view.findViewById(R.id.signup_user_name);
         first_name=view.findViewById(R.id.title_add_book);
