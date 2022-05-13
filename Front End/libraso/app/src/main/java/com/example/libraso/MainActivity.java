@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import com.example.libraso.Events.upcoming_events;
 import com.example.libraso.Signup_Login.GoogleLogin;
 import com.example.libraso.show_holds.show_all_holds;
+import com.example.libraso.show_holds.show_all_issues;
 import com.google.android.material.navigation.NavigationView;
 
 import android.net.Uri;
@@ -169,6 +170,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fm.beginTransaction().replace(R.id.fragment_container,
                         new Suggest_ebook()).commit();
                 break;
+
+            case R.id.show_all_issues:
+                fm.beginTransaction().replace(R.id.fragment_container,
+                        new show_all_issues()).commit();
+                break;
+
             case R.id.logout:
                 signOut();
                 break;

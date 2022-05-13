@@ -19,6 +19,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.libraso.Admin.show_holds.admin_show_all_holds;
+import com.example.libraso.Admin.show_holds.admin_show_all_issues;
 import com.example.libraso.Complaint;
 import com.example.libraso.Events.upcoming_events;
 import com.example.libraso.Loading;
@@ -28,6 +30,7 @@ import com.example.libraso.Suggest_ebook;
 //import com.example.libraso.fine;
 import com.example.libraso.show_book_grid;
 import com.example.libraso.show_holds.show_all_holds;
+import com.example.libraso.show_holds.show_all_issues;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -168,14 +171,20 @@ public class Admin_activity extends AppCompatActivity implements NavigationView.
                 fm.beginTransaction().replace(R.id.fragment_container,
                         new Complaint()).commit();
                 break;
-            case R.id.show_all_holds:
+            case R.id.admin_show_holds:
                 fm.beginTransaction().replace(R.id.fragment_container,
-                        new show_all_holds()).commit();
+                        new admin_show_all_holds()).commit();
                 break;
             case R.id.admin_add_workshop:
                 fm.beginTransaction().replace(R.id.fragment_container,
                         new admin_add_workshop()).commit();
                 break;
+
+            case R.id.admin_show_issued:
+                fm.beginTransaction().replace(R.id.fragment_container,
+                        new admin_show_all_issues()).commit();
+                break;
+
             case R.id.logout:
                 signOut();
                 break;

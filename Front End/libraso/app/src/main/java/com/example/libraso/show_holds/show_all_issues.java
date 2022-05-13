@@ -1,19 +1,14 @@
 package com.example.libraso.show_holds;
 
-import android.app.Service;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -31,32 +26,22 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.libraso.MainActivity;
-import com.example.libraso.MyAdapter;
 import com.example.libraso.R;
 import com.example.libraso.books;
-import com.example.libraso.show_book_grid;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.ObjectOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-public class show_all_holds extends Fragment {
+public class show_all_issues extends Fragment {
     private RecyclerView recyclerView;
     private ArrayList<String> titles;
     private ArrayList<Bitmap> images;
@@ -66,18 +51,18 @@ public class show_all_holds extends Fragment {
 
 //    private Context context;
 
-    public show_all_holds(FragmentManager fm){
+    public show_all_issues(FragmentManager fm){
 
 
         this.fm = fm;
     }
-    public show_all_holds()
+    public show_all_issues()
     {}
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.show_all_holds, container, false);
+        return inflater.inflate(R.layout.show_all_issues, container, false);
     }
 
     @Override
@@ -132,8 +117,7 @@ public class show_all_holds extends Fragment {
                     for (int i = 0; i <obj.length() ; i++) {
 
                         JSONObject tempobj=obj.getJSONObject(i);
-                        System.out.println(" asd " + MainActivity.userid);
-                        if(tempobj.getInt("user_id")!= MainActivity.userid || tempobj.getBoolean("is_issued"))
+                        if(tempobj.getInt("user_id")!= MainActivity.userid || !tempobj.getBoolean("is_issued"))
                             continue;
                         System.out.println(" asd " + tempobj.getInt("id"));
                         Hold temp=new Hold(
@@ -150,8 +134,8 @@ public class show_all_holds extends Fragment {
                         );
                         hold_list.add(temp);
 
-                    System.out.println(hold_list);
-                    System.out.println(adapter.getItemCount()+"in fetchlist");
+                        System.out.println(hold_list);
+                        System.out.println(adapter.getItemCount()+"in fetchlist");
 
                     }
 
@@ -191,20 +175,20 @@ public class show_all_holds extends Fragment {
 
 
 
-                        adapter.notifyDataSetChanged();
+                    adapter.notifyDataSetChanged();
 
-                        temp.setTitle(tempobj.getString("title"));
-                        temp.setImage(new Download_image().execute(tempobj.getString("book_Image_url")).get());
-                        temp.setAuthor(tempobj.getString("author"));
-                        temp.setRating((float) tempobj.getDouble("rating"));
-                        temp.setBooks_available(tempobj.getInt("books_available"));
-                        temp.setEdition(tempobj.getInt("edition"));
-                        temp.setDescription(tempobj.getString("description"));
-                        temp.setISBN(tempobj.getString("ISBN"));
-                        temp.setBook_url("https://libraso.herokuapp.com/books/"+temp.getISBN()+"/");
+                    temp.setTitle(tempobj.getString("title"));
+                    temp.setImage(new show_all_issues.Download_image().execute(tempobj.getString("book_Image_url")).get());
+                    temp.setAuthor(tempobj.getString("author"));
+                    temp.setRating((float) tempobj.getDouble("rating"));
+                    temp.setBooks_available(tempobj.getInt("books_available"));
+                    temp.setEdition(tempobj.getInt("edition"));
+                    temp.setDescription(tempobj.getString("description"));
+                    temp.setISBN(tempobj.getString("ISBN"));
+                    temp.setBook_url("https://libraso.herokuapp.com/books/"+temp.getISBN()+"/");
 
 
-                    } catch (JSONException jsonException) {
+                } catch (JSONException jsonException) {
                     jsonException.printStackTrace();
                 } catch (ExecutionException executionException) {
                     executionException.printStackTrace();
@@ -223,7 +207,7 @@ public class show_all_holds extends Fragment {
         }) ;
 
         MyRequestQueue.add(MyStringRequest);
-return temp;
+        return temp;
     }
     class Download_image extends AsyncTask<String, Void, Bitmap>
     {
@@ -306,10 +290,4 @@ return temp;
 
 
     }
-
 }
-
-
-
-
-
